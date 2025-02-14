@@ -45,6 +45,7 @@ const AuthProvider = ({ children }) => {
   }
 
   const updateUserProfile = (name, photo) => {
+    setLoading(true)
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -55,13 +56,17 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async currentUser => {
       console.log('CurrentUser-->', currentUser?.email)
+      console.log('CurrentUser-->', currentUser)
       if (currentUser?.email) {
         setUser(currentUser)
         const userInfo ={
-          email:currentUser.email,
-          name:currentUser.displayName,
+          email:currentUser?.email,
+          name:currentUser?.displayName,
+          image:currentUser?.photoURL,
         }
-        axiosPublic.post(`/users/${currentUser.email}`, userInfo)
+        console.table(userInfo)
+        // return
+        await axiosPublic.post(`/users/${currentUser?.email}`, userInfo)
         .then(res=>{
           console.log(res.data)
         })
@@ -84,7 +89,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubscribe()
     }
-  }, [])
+  }, [axiosPublic])
 
   const authInfo = {
     user,

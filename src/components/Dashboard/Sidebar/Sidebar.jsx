@@ -1,38 +1,37 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import useRole from '../../../hooks/useRole';
+import AdminSidebar from './AdminSidebar';
+import UserSidebar from './UserSidebar';
 
 const Sidebar = () => {
-    const isAdmin=false;
+    const { logOut } = useAuth()
+    const [role,] = useRole()
+    // const role='admin';
+    console.log(role)
+    // const handleLogOut = () => {
+    //     logOut()
+    // }
     // const isAdmin=true;
     return (
-        <div className='w-1/5 min-h-screen bg-orange-300'>
+        <div className='w-1/5 min-h-screen bg-gray-400'>
             <ul className='menu space-y-2 text-xl'>
                 {
-                    isAdmin ? <>
-                        <li><NavLink to='/dashboard/admin_dashboard'>Admin Dashboard</NavLink>
-                        </li>
-                        <li><NavLink to='/dashboard/manage_users'>Manage Users</NavLink>
-                        </li>
-                        <li><NavLink to='/dashboard/approved_premium'>Approved Premium</NavLink>
-                        </li>
-                        <li><NavLink to='/dashboard/contact_request'>Approved Contact Request</NavLink>
-                        </li>
-                        <li className='uppercase'><NavLink><button onClick={()=>logOut()}>Logout</button></NavLink></li>
-                    </> : <>
-                        <li className='uppercase'><NavLink to='/dashboard/edit'>Edit Biodata</NavLink></li>
-                        <li className='uppercase'><NavLink to='/dashboard/view'>View Biodata</NavLink></li>
-                        <li className='uppercase'><NavLink to='/dashboard/my_contact_request'>My Contact Request</NavLink></li>
-                        <li className='uppercase'><NavLink to='/dashboard/favourite'>Favourites Biodata</NavLink></li>
-                        {/* <li className='uppercase'><NavLink><button onClick={()=>logOut()}>Logout</button></NavLink></li> */}
-                        {/* <li className='uppercase'><NavLink><FaList />my booking</NavLink></li> */}
-                    </>
+                    role === 'Admin' && <AdminSidebar></AdminSidebar>
                 }
-
+                {
+                    role === 'General' && <UserSidebar></UserSidebar>
+                }
+                {
+                    role === 'Premium' && <UserSidebar></UserSidebar>
+                }
+                {/* {
+                    role === 'Requested for Premium' && <UserSidebar></UserSidebar>
+                } */}
+                <li className='uppercase'><><button className='btn' onClick={() => logOut()}>Logout</button></></li>
                 {/* divider */}
-                <div className="divider">OR</div>
-                <li className='uppercase'><NavLink to='/'>Home</NavLink></li>
-                <li className='uppercase'><NavLink to='/order/salad'>Menu</NavLink></li>
-                <li className='uppercase'><NavLink to='/order/contact'>Contact</NavLink></li>
+                
             </ul>
         </div>
     );

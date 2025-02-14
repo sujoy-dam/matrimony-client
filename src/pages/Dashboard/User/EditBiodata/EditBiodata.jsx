@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import { imageUpload } from '../../../../api/utiles';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 
 const EditBiodata = () => {
+    const axiosPublic = useAxiosPublic()
     const { user } = useAuth()
-    const axiosSecure=useAxiosSecure()
+    const {data:userInfo,isLoading,refetch}=useQuery({
+        queryKey:['userOne', user?.email],
+        queryFn:async()=>{
+            const {data}= await axiosPublic.get(`/single-user/${user?.email}`)
+            console.log(data)
+            return data
+        }
+    })
+    const navigate = useNavigate()
+    const axiosSecure = useAxiosSecure()
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form Data Submitted:");
@@ -14,26 +27,27 @@ const EditBiodata = () => {
         const gender = form.gender.value;
         const name = form.name.value;
         const photo = await imageUpload(form.profileImage.files[0]);
-        const bdateOfBirth = form.dateOfBirth.value;
+        const dateOfBirth = form.dateOfBirth.value;
         const height = form.height.value;
         const weight = form.weight.value;
-        const age = form.age.value;
+        const age = parseInt(form.age.value);
         const occupation = form.occupation.value;
         const race = form.race.value;
         const fatherName = form.fatherName.value;
         const motherName = form.motherName.value;
         const permanentDivision = form.permanentDivision.value;
         const presentDivision = form.presentDivision.value;
-        const expectedPartnerAge = form.expectedPartnerAge.value;
+        const expectedPartnerAge = parseInt(form.expectedPartnerAge.value);
         const expectedPartnerHeight = form.expectedPartnerHeight.value;
         const expectedPartnerWeight = form.expectedPartnerWeight.value;
-        const contactEmail = form.contactEmail.value;
+        // const email = user?.email;
         const mobileNumber = form.mobileNumber.value;
+        
         const bioData = {
             gender,
             name,
             photo,
-            bdateOfBirth,
+            dateOfBirth,
             height,
             weight,
             age, 
@@ -46,16 +60,21 @@ const EditBiodata = () => {
             expectedPartnerAge,
             expectedPartnerHeight,
             expectedPartnerWeight,
-            contactEmail,
             mobileNumber,
+            userEmail:userInfo?.email,
+            userRole:userInfo?.role
+            
         }
         console.table(bioData)
+        
         try{
-            const {data}=await axiosSecure.post('/bios', bioData)
+            const {data}=await axiosSecure.put(`/bio-data/${user?.email}`, bioData)
             console.log(data)
+            navigate('/dashboard/view')
             toast.success('Bio-Data added successfully')
         }catch(err){
-            console.log(err)
+            console.log(err.response.data)
+            toast.error(err.response.data)
         }
 
     };
@@ -88,6 +107,7 @@ const EditBiodata = () => {
                     name="name"
                     // value={formData.name}
                     // onChange={handleChange}
+                    defaultValue={user?.displayName}
                     required
                     className="w-full mb-4 p-2 border border-gray-300 rounded"
                 />
@@ -97,7 +117,7 @@ const EditBiodata = () => {
                 <input
                     type="file"
                     name="profileImage"
-                    // value={formData.profileImage}
+                    // value={userInfo.image}
                     // onChange={handleChange}
                     className="w-full mb-4 p-2 border border-gray-300 rounded"
                 />
@@ -283,7 +303,7 @@ const EditBiodata = () => {
                 <label className="block mb-2 font-medium">Contact Email</label>
                 <input
                     type="email"
-                    name="contactEmail"
+                    name="email"
                     // value={formData.contactEmail}
                     defaultValue={user.email}
                     readOnly

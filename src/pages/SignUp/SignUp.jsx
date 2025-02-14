@@ -16,8 +16,8 @@ const SignUp = () => {
     const email = form.email.value
     const password = form.password.value
     const photo =await imageUpload(form.image.files[0])
-    console.log(photo)
-
+    console.log(photo,name,email)
+// return
     try {
       //2. User Registration
       const result = await createUser(email, password)
