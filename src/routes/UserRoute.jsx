@@ -8,7 +8,7 @@ const UserRoute = ({children}) => {
     const [role, isLoading]=useRole()
   
     if (isLoading) return <LoadingSpinner />
-    if (role === 'user') return children
+    if (role === 'General') return children
     return <Navigate to='/dashboard' replace='true' />
 };
 

@@ -7,7 +7,7 @@ const AdminRoutes = ({children}) => {
     const [role, isLoading]=useRole()
   
     if (isLoading) return <LoadingSpinner />
-    if (role === 'admin') return children
+    if (role === 'Admin') return children
     return <Navigate to='/dashboard' replace='true' />
 };
 

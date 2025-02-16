@@ -22,6 +22,7 @@ import Checkout from '../pages/Checkout/Checkout'
 import UserPremiumModal from '../components/Modal/UserPremiumModal'
 import BiodatasBody from '../components/Biodatas/BiodatasBody'
 import GotMarried from '../pages/Dashboard/User/GotMarried/GotMarried'
+import AdminRoutes from './AdminRoutes'
 // import { element } from 'prop-types'
 
 export const router = createBrowserRouter([
@@ -36,27 +37,27 @@ export const router = createBrowserRouter([
       },
       {
         path: 'biodatas',
-        element: <Biodatas/>,
+        element: <Biodatas />,
       },
       {
         path: 'about_us',
-        element: <AboutUs/>,
+        element: <AboutUs />,
       },
       {
         path: 'contact_us',
         element: <ContactUs />,
       },
       {
-        path:'/biodata-details/:id',
-        element:<PrivateRoute>
-          <BiodataDetails/>
+        path: '/biodata-details/:id',
+        element: <PrivateRoute>
+          <BiodataDetails />
         </PrivateRoute>,
         // loader:({params})=>console.log(params.id)
-        loader:async({params})=>await fetch(`${import.meta.env.VITE_API_URL}/bio/${params.id}`)
+        loader: async ({ params }) => await fetch(`${import.meta.env.VITE_API_URL}/bio/${params.id}`)
       },
       {
-        path:'/checkout/:id',
-        element:<Checkout/>,
+        path: '/checkout/:id',
+        element: <Checkout />,
       },
       // {
       //   path:'/become-premium',
@@ -74,43 +75,67 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-     {
-      path:'edit',
-      element:<EditBiodata/>
-     },
-     {
-      path:'view',
-      element:<ViewBiodata/>
-     },
-     {
-      path:'my_contact_request',
-      element:<ContactRequest />
-     },
-     {
-      path:'favourite',
-      element:<Favourite/>
-     },
-     {
-      path:'gotMarried',
-      element:<GotMarried/>
-     },
-    //  admin route here
-    {
-      path:'admin_dashboard',
-      element:<AdminDashboard/>
-    },
-    {
-      path:'manage_users',
-      element:<ManageUsers/>
-    },
-    {
-      path:'approved_premium',
-      element:<ApprovedPremium/>
-    },
-    {
-      path:'contact_request',
-      element:<ApprovedContactRequest/>
-    }
+      {
+        index: true,
+        element: <PrivateRoute>
+          <EditBiodata />
+        </PrivateRoute>
+      },
+      {
+        path: 'view',
+        element: <PrivateRoute>
+          <ViewBiodata />
+        </PrivateRoute>
+      },
+      {
+        path: 'my_contact_request',
+        element: <PrivateRoute>
+          <ContactRequest />
+        </PrivateRoute>
+      },
+      {
+        path: 'favourite',
+        element: <PrivateRoute>
+          <Favourite />
+        </PrivateRoute>
+      },
+      {
+        path: 'gotMarried',
+        element: <PrivateRoute>
+          <GotMarried />
+        </PrivateRoute>
+      },
+      //  admin route here
+      {
+        path: 'admin_dashboard',
+        element: <PrivateRoute>
+          <AdminRoutes> <AdminDashboard /></AdminRoutes>
+        </PrivateRoute>
+      },
+      {
+        path: 'manage_users',
+        element: <PrivateRoute>
+          <AdminRoutes>
+            <ManageUsers />
+          </AdminRoutes>
+        </PrivateRoute>
+      },
+      {
+        path: 'approved_premium',
+        element: <PrivateRoute>
+          <AdminRoutes>
+            <ApprovedPremium />
+          </AdminRoutes>
+        </PrivateRoute>
+      },
+      {
+        path: 'contact_request',
+        element: <PrivateRoute>
+          <AdminRoutes>
+            <ApprovedContactRequest />
+          </AdminRoutes>
+        </PrivateRoute>
+      }
     ],
   },
 ])

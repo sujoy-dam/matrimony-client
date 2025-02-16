@@ -10,10 +10,6 @@ const Sidebar = () => {
     const [role,] = useRole()
     // const role='admin';
     console.log(role)
-    // const handleLogOut = () => {
-    //     logOut()
-    // }
-    // const isAdmin=true;
     return (
         <div className='w-1/5 min-h-screen bg-gray-400'>
             <ul className='menu space-y-2 text-xl'>
@@ -26,11 +22,9 @@ const Sidebar = () => {
                 {
                     role === 'Premium' && <UserSidebar></UserSidebar>
                 }
-                {/* {
-                    role === 'Requested for Premium' && <UserSidebar></UserSidebar>
-                } */}
+                
                 <li className='uppercase'><><button className='btn' onClick={() => logOut()}>Logout</button></></li>
-                {/* divider */}
+                
                 
             </ul>
         </div>

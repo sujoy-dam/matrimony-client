@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const ApprovedPremium = () => {
     const axiosPublic = useAxiosPublic()
@@ -19,10 +20,29 @@ const ApprovedPremium = () => {
     console.log(approvePremium)
     const handleMakePremium = async (id, preStatus, role) => {
         console.table({ id, preStatus, role })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do You Want to Make Premium this Biodata?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+                // return console.log('yes')
+                const { data } = await axiosSecure.patch(`/update-bios-status/${id}`, { role})
+                refetch()
+                console.log(data)
+              Swal.fire({
+                title: "Successful",
+                text: "User make premium successfully.",
+                icon: "success"
+              });
+            }
+          });
         // if(preStatus === Pre)
-        const { data } = await axiosSecure.patch(`/update-bios-status/${id}`, { role})
-        refetch()
-        console.log(data)
+       
     }
     if(isLoading) return 'Loading...'
     return (

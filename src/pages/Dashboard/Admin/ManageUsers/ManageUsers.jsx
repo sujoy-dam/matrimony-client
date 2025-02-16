@@ -2,10 +2,11 @@ import React from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure()
-    const { data: users = [], isLoading,refetch } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const { data } = await axiosSecure('/all-bios')
@@ -15,26 +16,61 @@ const ManageUsers = () => {
         }
 
     })
-    if(isLoading) return "Loading..."
+    if (isLoading) return "Loading..."
     const handleMakePremium = async (id, preStatus, role) => {
         console.table({ id, preStatus, role })
-        if(preStatus === "Premium"){
-            return toast.error('You have already Premium member')
-        }
-        const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role})
-        refetch()
-        console.log(data)
-        toast.success('Status Updated Successfully')
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do You Want to Make Premium this Biodata?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                if (preStatus === "Premium") {
+                    return toast.error('You have already Premium member')
+                }
+                const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role })
+                refetch()
+                console.log(data)
+                toast.success('Status Updated Successfully')
+                Swal.fire({
+                    title: "Successful",
+                    text: "User make premium successfully.",
+                    icon: "success"
+                });
+            }
+        });
+        
     }
     const handleMakeAdmin = async (id, preStatus, role,) => {
         console.table({ id, preStatus, role })
-        if(preStatus === 'Admin'){
-            return toast.error('You have already admin')
-        }
-        const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role})
-        refetch()
-        console.log(data)
-        toast.success('Status Updated Successfully')
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do You Want to Make Admin this user?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+                if (preStatus === 'Admin') {
+                    return toast.error('You have already admin')
+                }
+                const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role })
+                refetch()
+                console.log(data)
+                toast.success('Status Updated Successfully')
+              Swal.fire({
+                title: "Successful",
+                text: "User make Admin successfully.",
+                icon: "success"
+              });
+            }
+          });
     }
     console.log(users)
     return (
@@ -61,7 +97,7 @@ const ManageUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.userEmail}</td>
                                 <td>{user.userRole}</td>
-                                <td>{user.status? user.status:"Unavailable"}</td>
+                                <td>{user?.status ? user.status : "Unavailable"}</td>
                                 {/* make Admin button  */}
                                 <td>
                                     {

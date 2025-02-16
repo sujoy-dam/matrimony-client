@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const ApprovedContactRequest = () => {
     const axiosSecure = useAxiosSecure()
@@ -15,13 +16,31 @@ const ApprovedContactRequest = () => {
     })
     const handleMakeApprove = async (id, preStatus, status) => {
         console.table({ id, preStatus, status })
-        if (preStatus === "Approved") {
-            toast.error('Already Approved')
-        }
-        const { data } = await axiosSecure.patch(`/approve-status/${id}`, { status })
-        toast.success('Request Accepted')
-        refetch()
-        console.log(data)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You Want to Approve Request",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+          }).then(async(result) => {
+            if (result.isConfirmed) {
+                if (preStatus === "Approved") {
+                    toast.error('Already Approved')
+                }
+                const { data } = await axiosSecure.patch(`/approve-status/${id}`, { status })
+                toast.success('Request Accepted')
+                refetch()
+                console.log(data)
+              Swal.fire({
+                title: "Successful",
+                text: "Approve Request Successfully",
+                icon: "success"
+              });
+            }
+          });
+        
     }
     return (
         <div>
