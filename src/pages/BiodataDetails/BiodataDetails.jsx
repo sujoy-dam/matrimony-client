@@ -78,17 +78,17 @@ const BiodataDetails = () => {
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                 {
-                    gender.slice(0,3).map(item => <PremiumCard key={item._id} item={item}></PremiumCard>)
+                    gender.slice(0, 3).map(item => <PremiumCard key={item._id} item={item}></PremiumCard>)
                 }
             </div>
-            <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-300">
+            <div className="w-full lg:flex justify-between items-center gap-20 p-5 my-10 bg-white shadow-lg rounded-lg border-2 border-gray-800">
                 {/* Profile Image */}
-                <div className="relative h-48 w-full bg-gray-200">
+                <div className="w-full lg:w-1/2 bg-gray-200">
                     {photo ? (
                         <img
                             src={photo}
                             alt={name}
-                            className="object-cover h-full w-full"
+                            className="border-4 w-[800px]"
                         />
                     ) : (
                         <div className="flex items-center justify-center h-full text-gray-500">
@@ -98,42 +98,90 @@ const BiodataDetails = () => {
                 </div>
 
                 {/* Biodata Details */}
-                <div className="p-6">
+                <div className="p-6 w-full lg:w-1/2 space-y-2">
                     {/* Name */}
                     <h1 className="text-2xl font-bold text-gray-800">{name}</h1>
                     <p className="text-sm text-gray-500">{occupation}</p>
 
                     <div className="mt-4">
                         {/* Personal Information */}
-                        <p className="text-sm text-gray-600">Biodata Id: {biodataId}</p>
-                        <p className="text-sm text-gray-600">Date of Birth: {dateOfBirth}</p>
-                        <p className="text-sm text-gray-600">Height: {height} cm</p>
-                        <p className="text-sm text-gray-600">Weight: {weight} kg</p>
-                        <p className="text-sm text-gray-600">Age: {age} years</p>
-                        <p className="text-sm text-gray-600">Race (Skin Color): {race}</p>
+                        <div>
+                            <h4 className="text-xl font-bold text-orange-700">Biodata Id:</h4>
+                            <p>{biodataId}</p>
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-bold text-orange-700">Date of Birth:</h4>
+                            <p>{dateOfBirth}</p>
+                        </div>
+                        <div>
+
+                            <h1 className="text-xl font-bold text-orange-700">Height:</h1>
+                            <p>{height}</p>
+                        </div>
+                        <div>
+
+                            <h1 className="text-xl font-bold text-orange-700">Weight: </h1>
+                            <p>{weight}</p>
+                        </div>
+                        <div>
+
+                            <h1 className="text-xl font-bold text-orange-700">Age:</h1>
+                            <p> {age} years</p>
+                        </div>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Race (Skin Color):</h1>
+                            <p>{race}</p>
+                        </div>
 
                         {/* Family Information */}
-                        <p className="text-sm text-gray-600">Father's Name: {fatherName}</p>
-                        <p className="text-sm text-gray-600">Mother's Name: {motherName}</p>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Father Name:</h1>
+                            <p>{fatherName}</p>
+                        </div>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Mother Name:</h1>
+                            <p>{motherName}</p>
+                        </div>
 
                         {/* Address Information */}
-                        <p className="text-sm text-gray-600">Permanent Division: {permanentDivision}</p>
-                        <p className="text-sm text-gray-600">Present Division: {presentDivision}</p>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Permanent Division:</h1>
+                            <p>{permanentDivision}</p>
+                        </div>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Present Division:</h1>
+                            <p>{presentDivision}</p>
+                        </div>
 
                         {/* Partner Preferences */}
-                        <p className="text-sm text-gray-600">Expected Partner Age: {expectedPartnerAge} years</p>
-                        <p className="text-sm text-gray-600">Expected Partner Height: {expectedPartnerHeight} cm</p>
-                        <p className="text-sm text-gray-600">Expected Partner Weight: {expectedPartnerWeight} kg</p>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Expected Partner Age:</h1>
+                            <p>{expectedPartnerAge} years</p>
+                        </div>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Expected Partner Height:</h1>
+                            <p>{expectedPartnerHeight}</p>
+                        </div>
+                        <div>
+                            <h1 className='text-xl font-bold text-orange-700'>Expected Partner Weight:</h1>
+                            <p>{expectedPartnerWeight}</p>
+                        </div>
 
                         {/* Contact Information */}
                         {
                             role === "Premium" || role === "Admin" ? <>
 
-                                <p className="text-sm text-gray-600">Email: {userEmail}</p>
-                                <p className="text-sm text-gray-600">Mobile: {mobileNumber}</p>
+                                <div>
+                                    <h1 className='text-xl font-bold text-orange-700'>Email:</h1>
+                                    <p>{item?.userEmail}</p>
+                                </div>
+                                <div>
+                                    <h1 className='text-xl font-bold text-orange-700'>Mobile:</h1>
+                                    <p>{mobileNumber}</p>
+                                </div>
                             </> :
                                 <>
-                                    <Link to={`/checkout/${_id}`} >
+                                    <Link to={`/checkout/${_id}`} className='' >
 
                                         <button className='btn'>Request Contact Information</button>
                                     </Link>
