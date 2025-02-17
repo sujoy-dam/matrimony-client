@@ -25,7 +25,7 @@ const ViewBiodata = () => {
   
     return (
         <div>
-            {bio.length===0 ?<h1 className='text-center text-3xl font-bold'>You do not have biodata</h1>: <button className='btn btn-primary' onClick={() => setIsOpen(true)}>Make biodata to premium</button>}
+            {bio.length===0 ?<h1 className='text-center text-3xl font-bold'>You do not have biodata</h1>: <button className='btn bg-gray-800 text-white' onClick={() => setIsOpen(true)}>Make biodata to premium</button>}
             {/* <button className='btn btn-primary' onClick={() => setIsOpen(true)}>Make biodata to premium</button> */}
             {/* <button className='btn btn-primary'>Make biodata to premium</button> */}
 

@@ -4,9 +4,9 @@ const BiodatasSidebar = ({setFilterGender,setFilterDivision,setSearchAge}) => {
     return (
         <div className='bg-gray-200 p-5'>
             {/* filter by age */}
-            <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+            <div className='flex w-full p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
               <input
-                className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
+                className='px-6 w-full py-4 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
                 type='text'
                 name='search'
                 placeholder='Enter Age'
@@ -24,7 +24,7 @@ const BiodatasSidebar = ({setFilterGender,setFilterDivision,setSearchAge}) => {
                 <select
                     name='category'
                     id='category'
-                    className='border p-4 rounded-lg'
+                    className='border p-4 rounded-lg w-full'
                   onChange={(e)=>setFilterGender(e.target.value)}
                 //   value={filter}
                 >
@@ -39,7 +39,7 @@ const BiodatasSidebar = ({setFilterGender,setFilterDivision,setSearchAge}) => {
                 <select
                     name='category'
                     id='category'
-                    className='border p-4 rounded-lg'
+                    className='border p-4 rounded-lg w-full'
                   onChange={(e)=>setFilterDivision(e.target.value)}
                 //   value={filter}
                 >

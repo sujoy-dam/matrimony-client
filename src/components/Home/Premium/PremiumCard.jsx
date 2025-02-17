@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const PremiumCard = ({ item }) => {
     return (
-        <div className="mt-6 bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden">
+        <div className="mt-6 bg-gray-800 text-white border-gray-200 shadow-md rounded-lg overflow-hidden">
             {/* Profile Image */}
-            <div className="w-full h-48 bg-gray-200 flex justify-center items-center">
+            <div className="w-full p-4 h-48 bg-gray-800 flex justify-center items-center">
                 {item?.photo ? (
                     <img
                         src={item?.photo}
                         alt="Profile"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover rounded-xl"
                     />
                 ) : (
                     <span className="text-gray-500 text-lg">No Image</span>
@@ -19,19 +19,19 @@ const PremiumCard = ({ item }) => {
 
             {/* Profile Details */}
             <div className="p-4">
-                <h2 className="text-xl font-bold text-gray-800">
+                <h2 className="text-xl font-bold">
                     Biodata ID: {item?.biodataId}
                 </h2>
-                <p className="text-gray-600">
+                <p>
                     <strong>Type:</strong> {item?.gender}
                 </p>
-                <p className="text-gray-600">
+                <p>
                     <strong>Division:</strong> {item?.permanentDivision}
                 </p>
-                <p className="text-gray-600">
+                <p>
                     <strong>Age:</strong> {item?.age}
                 </p>
-                <p className="text-gray-600">
+                <p>
                     <strong>Occupation:</strong> {item?.occupation}
                 </p>
             </div>

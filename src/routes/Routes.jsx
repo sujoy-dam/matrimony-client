@@ -76,7 +76,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        index: true,
+        path:'edit',
         element: <PrivateRoute>
           <EditBiodata />
         </PrivateRoute>

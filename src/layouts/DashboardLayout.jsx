@@ -5,22 +5,22 @@ import Navbar from '../components/Shared/Navbar/Navbar'
 
 const DashboardLayout = () => {
   return (
-    <>
-    <div>
-    </div>
-      <Navbar/>
-    <div className='relative min-h-screen md:flex bg-white'>
-      {/* Left Side: Sidebar Component */}
-      <Sidebar></Sidebar>
-      {/* Right Side: Dashboard Dynamic Content */}
-      <div className='flex-1 '>
-        <div className='p-5'>
-          {/* Outlet for dynamic contents */}
-          <Outlet />
+    <div className='relative'>
+      <div className='sticky top-0 z-10'>
+        <Navbar />
+      </div>
+      <div className='relative min-h-screen lg:flex bg-white'>
+        {/* Left Side: Sidebar Component */}
+        <Sidebar></Sidebar>
+        {/* Right Side: Dashboard Dynamic Content */}
+        <div className='flex-1 '>
+          <div className='p-5'>
+            {/* Outlet for dynamic contents */}
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
-    </>
   )
 }
 

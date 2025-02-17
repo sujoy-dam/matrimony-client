@@ -16,6 +16,9 @@ const ApprovedContactRequest = () => {
     })
     const handleMakeApprove = async (id, preStatus, status) => {
         console.table({ id, preStatus, status })
+        if(preStatus === status){
+            return toast.error("Status Already Approved")
+        }
         Swal.fire({
             title: "Are you sure?",
             text: "You Want to Approve Request",
@@ -45,9 +48,9 @@ const ApprovedContactRequest = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table table-zebra border-gray-800 border-2">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-gray-800 text-white'>
                         <tr>
                             <th></th>
                             <th>Name</th>
@@ -67,7 +70,7 @@ const ApprovedContactRequest = () => {
                                 <td>{item.biodataID}</td>
                                 <td>{item?.status}</td>
                                 <td>
-                                    <button onClick={() => handleMakeApprove(item?._id, item?.status, "Approved")} className='btn btn-secondary'>Make Approved</button>
+                                    {item.status==="Approved"?<button onClick={() => handleMakeApprove(item?._id, item?.status, "Approved")} className='btn btn-disabled'> Disablede</button>:<button onClick={() => handleMakeApprove(item?._id, item?.status, "Approved")} className='btn bg-gray-800 text-white'>Make Approved</button>}
                                 </td>
                             </tr>)
                         }

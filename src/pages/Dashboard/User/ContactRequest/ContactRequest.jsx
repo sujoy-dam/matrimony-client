@@ -29,7 +29,7 @@ const ContactRequest = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <table className="table">
+                {contact.length ===0?<h1 className='text-center text-3xl font-bold'>You do not have contact request</h1>:<table className="table">
                     {/* head */}
                     <thead>
                         <tr>
@@ -58,7 +58,7 @@ const ContactRequest = () => {
                         {/* row 2 */}
 
                     </tbody>
-                </table>
+                </table>}
             </div>
         </div>
     );

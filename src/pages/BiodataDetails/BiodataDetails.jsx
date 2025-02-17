@@ -37,7 +37,7 @@ const BiodataDetails = () => {
         expectedPartnerHeight,
         expectedPartnerWeight,
         biodataId,
-        email,
+        userEmail,
         mobileNumber,
     } = item
 
@@ -129,7 +129,7 @@ const BiodataDetails = () => {
                         {
                             role === "Premium" || role === "Admin" ? <>
 
-                                <p className="text-sm text-gray-600">Email: {email}</p>
+                                <p className="text-sm text-gray-600">Email: {userEmail}</p>
                                 <p className="text-sm text-gray-600">Mobile: {mobileNumber}</p>
                             </> :
                                 <>

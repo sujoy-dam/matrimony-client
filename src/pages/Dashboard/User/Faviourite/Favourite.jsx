@@ -28,7 +28,7 @@ const Favourite = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+               {favourite.length===0?<h1 className='text-center text-3xl font-bold'>You do not have favourite Biodata</h1>: <table className="table table-zebra">
                     {/* head */}
                     <thead>
                         <tr>
@@ -53,7 +53,7 @@ const Favourite = () => {
                     </tr>)
                        }
                     </tbody>
-                </table>
+                </table>}
             </div>
             {/* favourite:{favourite.map(fav=>)} */}
         </div>

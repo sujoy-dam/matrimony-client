@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import HowItWorks from '../../components/Home/HowItWorks/HowItWorks'
 import CountDown from '../../components/Home/CountDown/CountDown'
 import SuccessStory from '../../components/Home/SuccessStory/SuccessStory'
+import Heading from '../../components/Shared/Heading'
 // import Plants from '../../components/Home/Plants'
 
 const Home = () => {
@@ -41,7 +42,7 @@ const Home = () => {
   };
   // console.log(status)
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto space-y-10'>
       <Helmet>
         <title> Bangla Matrimony | Choose Your Desired Partner</title>
       </Helmet>
@@ -50,6 +51,7 @@ const Home = () => {
 
       </div>
       <div className=''>
+        <Heading title={"PREMIUM MEMBER"} subtitle={"Here tou can find premium member"} center={true}></Heading>
         <div>
           <select
             name='category'

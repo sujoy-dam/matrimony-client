@@ -8,11 +8,11 @@ const HowItWorks = () => {
       ];
       
     return (
-        <div className="bg-gray-100 py-12 px-6">
+        <div className="bg-gray-800 text-white py-12 px-6">
             {/* Hero Section */}
             <div className="text-center max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold text-gray-900">How It Works</h1>
-                <p className="mt-4 text-lg text-gray-600">
+                <h1 className="text-4xl font-bold">How It Works</h1>
+                <p className="mt-4 text-lg">
                     Finding your perfect match is easy with MatrimonyHub. Follow these simple steps to start your journey.
                 </p>
             </div>
@@ -30,11 +30,11 @@ const HowItWorks = () => {
 
             {/* Additional Information */}
             <div className="mt-16 max-w-4xl mx-auto text-center">
-                <h2 className="text-2xl font-bold text-gray-900">Why Choose MatrimonyHub?</h2>
-                <p className="text-gray-600 mt-4">
+                <h2 className="text-2xl font-bold">Why Choose MatrimonyHub?</h2>
+                <p className="mt-4">
                     MatrimonyHub is dedicated to helping individuals find their perfect life partner with the utmost safety and efficiency. Our platform ensures:
                 </p>
-                <ul className="list-disc list-inside text-gray-600 mt-4">
+                <ul className="list-disc list-inside mt-4">
                     <li>Strict verification of profiles for authenticity.</li>
                     <li>AI-powered matchmaking for better compatibility.</li>
                     <li>Secure and private communication tools.</li>
@@ -44,8 +44,8 @@ const HowItWorks = () => {
 
             {/* Call to Action */}
             <div className="mt-16 text-center">
-                <h2 className="text-2xl font-bold text-gray-900">Ready to Find Your Match?</h2>
-                <p className="text-gray-600 mt-2">Join MatrimonyHub today and take the first step towards a lifetime of happiness.</p>
+                <h2 className="text-2xl font-bold">Ready to Find Your Match?</h2>
+                <p className="mt-2">Join MatrimonyHub today and take the first step towards a lifetime of happiness.</p>
                 <button className="btn btn-primary mt-4">Get Started</button>
             </div>
         </div>

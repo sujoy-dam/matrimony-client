@@ -76,9 +76,9 @@ const ManageUsers = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table border-gray-800 border-2">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-gray-800 text-white'>
                         <tr>
                             <th></th>
                             <th>Name</th>
@@ -89,7 +89,7 @@ const ManageUsers = () => {
                             <th>Make Premium</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='border-gray-800 border-b-2'>
                         {/* row 1 */}
                         {
                             users.map((user, index) => <tr key={user._id}>
@@ -101,13 +101,13 @@ const ManageUsers = () => {
                                 {/* make Admin button  */}
                                 <td>
                                     {
-                                        user.userRole === "Admin" ? <button className='btn disabled'>Make Admin</button> : <button onClick={() => handleMakeAdmin(user._id, user.userRole, "Admin")} className='btn bg-red-400'>Make Admin</button>
+                                        user.userRole === "Admin" ? <button className='btn disabled'>Disabled</button> : <button onClick={() => handleMakeAdmin(user._id, user.userRole, "Admin")} className='btn bg-gray-800 text-white'>Make Admin</button>
                                     }
                                 </td>
                                 {/* make Prmium Button  */}
                                 <td>
                                     {
-                                        user.userRole === "Premium" ? <button className='btn disabled'>Make Premium</button> : <button onClick={() => handleMakePremium(user._id, user.userRole, "Premium",)} className='btn bg-red-400'>Make Premium</button>
+                                        user.userRole === "Premium" ? <button className='btn disabled'>Disabled</button> : <button onClick={() => handleMakePremium(user._id, user.userRole, "Premium",)} className='btn bg-gray-800 text-white'>Make Premium</button>
                                     }
                                 </td>
                                 {/* <td><button onClick={handleMakePremium} className='btn bg-red-400'>Make Premium</button></td> */}

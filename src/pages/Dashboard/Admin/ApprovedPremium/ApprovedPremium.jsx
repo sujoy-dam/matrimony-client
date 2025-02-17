@@ -50,7 +50,7 @@ const ApprovedPremium = () => {
             <div className="overflow-x-auto">
                 {approvePremium.length>0?<table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-gray-800 text-white'>
                         <tr>
                             <th></th>
                             <th>Name</th>
@@ -73,7 +73,7 @@ const ApprovedPremium = () => {
                                 <td>{item?.status}</td>
                                 <td>
                                     {
-                                        item?.role === 'Premium'?<button className='btn btn-disabled'>Make Premium</button>:<button className='btn btn-primary' onClick={()=>handleMakePremium(item?._id,item?.userRole,"Premium")}>Make Premium</button>
+                                        item?.role === 'Premium'?<button className='btn btn-disabled'>Make Premium</button>:<button className='btn bg-gray-800 text-white' onClick={()=>handleMakePremium(item?._id,item?.userRole,"Premium")}>Make Premium</button>
                                     }
                                 </td>
                             </tr>)

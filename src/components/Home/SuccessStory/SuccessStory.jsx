@@ -15,11 +15,12 @@ const SuccessStory = () => {
 })
   
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-gray-50">
-      <h2 className="text-2xl font-bold text-center mb-6">Marriage Success Stories</h2>
-      <div className="grid md:grid-cols-3 gap-6">
+    <div className="max-w-5xl mx-auto p-6 bg-gray-50 border-gray-800 border-4 mb-10 rounded-xl">
+      <h2 className="text-4xl font-bold text-center mb-6">Marriage Success Stories</h2>
+      <h2 className="text-2xl font-bold text-center mb-6">Recent Couples</h2>
+      <div className="grid md:grid-cols-3 gap-6 text-white">
         {
-          married.slice(0,3).map(item => <div key={item._id} className="bg-white shadow-lg rounded-2xl p-6 space-y-4">
+          married.slice(0,3).map(item => <div key={item._id} className="shadow-lg  bg-gray-800 rounded-2xl p-6 space-y-4">
             {/* Image */}
             <img
               src={item.coupleImage}
@@ -30,7 +31,7 @@ const SuccessStory = () => {
             {/* Name & Marriage Date */}
             <div className="text-center">
               {/* <h2 className="text-xl font-semibold">{name}</h2> */}
-              <p className="text-gray-500">Married on: {item?.dateOfMarriage}</p>
+              <p className="">Married on: {item?.dateOfMarriage}</p>
             </div>
 
             {/* Star Rating */}
@@ -41,7 +42,7 @@ const SuccessStory = () => {
           </div> */}
 
             {/* Success Story */}
-            <p className="text-gray-700 text-center">{item.storyReview}</p>
+            <p className="text-center">{item.storyReview}</p>
           </div>)
         }
       </div>

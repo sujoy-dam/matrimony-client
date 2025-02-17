@@ -11,7 +11,7 @@ const Sidebar = () => {
     // const role='admin';
     console.log(role)
     return (
-        <div className='w-1/5 min-h-screen bg-gray-400'>
+        <div className='w-full lg:w-1/5 min-h-screen bg-gray-800 text-white'>
             <ul className='menu space-y-2 text-xl'>
                 {
                     role === 'Admin' && <AdminSidebar></AdminSidebar>
