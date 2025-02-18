@@ -15,10 +15,10 @@ const BiodataDetails = () => {
     const { user } = useAuth()
     // const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
-    console.log(item)
+    // console.log(item)
     const [role] = useRole()
     // const role='Premium'
-    console.log(role)
+    // console.log(role)
     const {
         _id,
         name,
@@ -45,14 +45,14 @@ const BiodataDetails = () => {
         queryKey: ['gender', item?.gender],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/details-gender/${item?.gender}`)
-            console.log(data)
+            // console.log(data)
             refetch()
             return data
         }
     })
     if (isLoading) return 'Loading..'
     const handleAddToFavourite = async (item) => {
-        console.log(item)
+        // console.log(item)
         const favouriteInfo = {
             name: item?.name,
             // email: item?.email,
@@ -64,7 +64,7 @@ const BiodataDetails = () => {
         }
         try {
             const { data } = await axiosSecure.post(`/favourite`, favouriteInfo)
-            console.log(data)
+            // console.log(data)
             toast.success('Added to your favourite list Successfully')
 
         } catch (err) {

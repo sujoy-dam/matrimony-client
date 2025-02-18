@@ -20,15 +20,15 @@ const Home = () => {
     fetch(`${import.meta.env.VITE_API_URL}/all-bios`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         const premium = data.filter(item => item.userRole === "Premium")
         // const premium = data.filter(item=>item.status==="Requested")
-        console.log(premium)
+        // console.log(premium)
         setPremium(premium)
       })
   }, [])
   const sortUsers = (order) => {
-    console.log(order)
+    // console.log(order)
     if (order === 'asc') {
 
       const sortedAsc = [...premium].sort((a, b) => a.age - b.age);

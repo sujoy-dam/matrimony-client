@@ -22,7 +22,7 @@ const Checkout = () => {
   }, [user?.email])
   const fetchData = async () => {
     const { data } = await axiosSecure.get(`/bio/${id}`)
-    console.log(data)
+    // console.log(data)
     setContact(data)
   }
   // const handleContactSubmit = async (e) => {

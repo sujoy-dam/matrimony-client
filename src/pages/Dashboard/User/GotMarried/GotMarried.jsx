@@ -25,14 +25,14 @@ const GotMarried = () => {
       storyReview,
       dateOfMarriage
     }
-    console.table(gotMarriedInfo)
+    // console.table(gotMarriedInfo)
     try {
       const { data } = await axiosSecure.post(`/got-married`, gotMarriedInfo)
-      console.log(data)
+      // console.log(data)
       // navigate('/dashboard/view')
       toast.success('Added successfully')
     } catch (err) {
-      console.log(err.response.data)
+      // console.log(err.response.data)
       toast.error(err.response.data)
     }
   };

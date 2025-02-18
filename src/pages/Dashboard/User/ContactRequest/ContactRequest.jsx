@@ -11,19 +11,19 @@ const ContactRequest = () => {
         queryKey:['contact', user?.email],
         queryFn:async()=>{
             const {data}=await axiosSecure.get(`/contact/${user?.email}`)
-            console.log(data)
+            // console.log(data)
             return data
         }
     })
-    console.log(contact)
+    // console.log(contact)
     const handleDelete = async(id)=>{
-        console.log(id)
+        // console.log(id)
         try{
             const {data}=await axiosSecure.delete(`/delete-contact/${id}`)
-            console.log(data)
+            // console.log(data)
             refetch()
         }catch(err){
-            console.log(err)
+            // console.log(err)
         }
     }
     return (

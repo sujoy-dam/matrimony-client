@@ -18,11 +18,11 @@ const Favourite = () => {
 
     })
     if(isLoading) return "Loading..."
-    console.log(favourite)
+    // console.log(favourite)
     const handleDelete = async(id)=>{
-        console.log(id)
+        // console.log(id)
         const {data}=await axiosSecure.delete(`/favourite-delete/${id}`)
-        console.log(data)
+        // console.log(data)
         refetch()
     }
     return (

@@ -14,7 +14,7 @@ const EditBiodata = () => {
         queryKey:['userOne', user?.email],
         queryFn:async()=>{
             const {data}= await axiosPublic.get(`/single-user/${user?.email}`)
-            console.log(data)
+            // console.log(data)
             return data
         }
     })
@@ -22,7 +22,7 @@ const EditBiodata = () => {
     const axiosSecure = useAxiosSecure()
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Data Submitted:");
+        // console.log("Form Data Submitted:");
         const form = e.target;
         const gender = form.gender.value;
         const name = form.name.value;
@@ -65,15 +65,15 @@ const EditBiodata = () => {
             userRole:userInfo?.role
             
         }
-        console.table(bioData)
+        // console.table(bioData)
         
         try{
             const {data}=await axiosSecure.put(`/bio-data/${user?.email}`, bioData)
-            console.log(data)
+            // console.log(data)
             navigate('/dashboard/view')
             toast.success('Bio-Data added successfully')
         }catch(err){
-            console.log(err.response.data)
+            // console.log(err.response.data)
             toast.error(err.response.data)
         }
 

@@ -17,11 +17,11 @@ const ViewBiodata = () => {
     },[user?.email])
     const fetchBio = async()=>{
         const {data}=await axiosSecure.get(`/bio-get/${user?.email}`)
-        console.log(data)
+        // console.log(data)
         setBio(data)
     }
     let [isOpen, setIsOpen] = useState(false)
-    console.log(bio)
+    // console.log(bio)
   
     return (
         <div>

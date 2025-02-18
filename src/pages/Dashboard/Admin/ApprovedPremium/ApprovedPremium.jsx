@@ -12,14 +12,14 @@ const ApprovedPremium = () => {
         queryKey: ['approvePremium'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/all-bios')
-            console.log(data)
+            // console.log(data)
             const premiumReques = data.filter(item => item.status === 'Requested for Premium')
             return premiumReques
         }
     })
-    console.log(approvePremium)
+    // console.log(approvePremium)
     const handleMakePremium = async (id, preStatus, role) => {
-        console.table({ id, preStatus, role })
+        // console.table({ id, preStatus, role })
         Swal.fire({
             title: "Are you sure?",
             text: "Do You Want to Make Premium this Biodata?",
@@ -33,7 +33,7 @@ const ApprovedPremium = () => {
                 // return console.log('yes')
                 const { data } = await axiosSecure.patch(`/update-bios-status/${id}`, { role})
                 refetch()
-                console.log(data)
+                // console.log(data)
               Swal.fire({
                 title: "Successful",
                 text: "User make premium successfully.",

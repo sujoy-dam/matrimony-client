@@ -9,7 +9,7 @@ const SuccessStory = () => {
     queryKey:['married'],
     queryFn:async()=>{
         const {data}= await axiosSecure.get(`/all-married`)
-        console.log(data)
+        // console.log(data)
         return data
     }
 })

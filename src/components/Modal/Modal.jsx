@@ -13,10 +13,10 @@ const Modal = ({ isOpen, setIsOpen }) => {
         try {
             // send a premium request to server
             const { data } = await axiosSecure.patch(`/bio-premium/${user?.email}`)
-            console.log(data)
+            // console.log(data)
             toast.success('Successfully Appled to Become a Premium User')
         } catch (err) {
-            console.log(err)
+            // console.log(err)
             toast.error(err.response.data)
         }finally{
             setIsOpen(false)

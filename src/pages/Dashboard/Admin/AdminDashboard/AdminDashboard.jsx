@@ -11,7 +11,7 @@ const AdminDashboard = () => {
         queryKey: ['total'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/admin-state')
-            console.log(data)
+            // console.log(data)
             refetch()
             return data;
         }

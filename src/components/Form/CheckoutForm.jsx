@@ -21,7 +21,7 @@ const CheckoutForm = ({ contact }) => {
         axiosSecure.post('/create-payment-intent', { price: 5 })
             .then(res => {
 
-                console.log(res.data.clientSecret)
+                // console.log(res.data.clientSecret)
                 setClientSecret(res.data.clientSecret)
             })
     }, [axiosSecure])
@@ -29,7 +29,7 @@ const CheckoutForm = ({ contact }) => {
         // Block native form submission.
         event.preventDefault();
         setError('')
-        console.log(contact)
+        // console.log(contact)
 
         if (!stripe || !elements) {
             // Stripe.js has not loaded yet. Make sure to disable
@@ -53,11 +53,11 @@ const CheckoutForm = ({ contact }) => {
         });
 
         if (error) {
-            console.log('[error]', error);
+            // console.log('[error]', error);
             setError(error.message)
             toast.error(error.message)
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
             setError('')
         }
         // confirm payment 
@@ -71,11 +71,11 @@ const CheckoutForm = ({ contact }) => {
             }
         })
         if (confirmError) {
-            console.log('confirm error')
+            // console.log('confirm error')
         } else {
-            console.log('payment intent', paymentIntent)
+            // console.log('payment intent', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
-                console.log(paymentIntent.id)
+                // console.log(paymentIntent.id)
                 const paymentInfo = {
                     userEmail: user?.email,
                     userName: user?.displayName,
@@ -87,14 +87,14 @@ const CheckoutForm = ({ contact }) => {
                     status: 'pending'
 
                 }
-                console.table(paymentInfo)
+                // console.table(paymentInfo)
                 try {
                     const { data } = await axiosSecure.post('/contact', paymentInfo)
-                    console.log(data)
+                    // console.log(data)
                     toast.success('Successfully requested to contact')
                     navigate('/dashboard/my_contact_request')
                 } catch (err) {
-                    console.log(err)
+                    // console.log(err)
                 } finally {
                     // something else 
                 }

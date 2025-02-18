@@ -5,7 +5,7 @@ Welcome to our Matrimony Website, a platform designed to connect individuals see
 ## Admin Information
 - **Admin Email**: sujoy1@gmail.com
 - **Admin Password**: [123456]
-- **Live Site URL**: [https://www.matrimonywebsite.com](https://www.matrimonywebsite.com)
+- **Live Site URL**: [https://matrimony-cbba3.firebaseapp.com](https://matrimony-cbba3.firebaseapp.com)
 
 ## Features
 - **User Profiles**: Create a personalized profile with details such as name, age, interests, and photos.
