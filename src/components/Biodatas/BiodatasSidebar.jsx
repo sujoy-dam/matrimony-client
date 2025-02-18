@@ -11,6 +11,7 @@ const BiodatasSidebar = ({ setFilterGender, setFilterDivision, setSearchAge, fil
                     name='search'
                     placeholder='Enter Age'
                     onChange={(e) => setSearchAge(e.target.value)}
+                    // value={searchAge}
                 />
                 <button className='px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
                     Search
@@ -23,7 +24,7 @@ const BiodatasSidebar = ({ setFilterGender, setFilterDivision, setSearchAge, fil
                     name='gender'
                     className='border p-4 rounded-lg w-full'
                     onChange={(e) => setFilterGender(e.target.value)}
-                    value={filterGender || ""}
+                    // value={filterGender || ""}
                 >
                     <option value=''>Filter By Gender</option>
                     <option value='Male'>Male</option>
@@ -37,7 +38,7 @@ const BiodatasSidebar = ({ setFilterGender, setFilterDivision, setSearchAge, fil
                     name='division'
                     className='border p-4 rounded-lg w-full'
                     onChange={(e) => setFilterDivision(e.target.value)}
-                    value={filterDivision || ""}
+                    // value={filterDivision}
                 >
                     <option value="">Select Division</option>
                     <option value="Dhaka">Dhaka</option>
