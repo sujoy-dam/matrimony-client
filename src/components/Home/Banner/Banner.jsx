@@ -41,7 +41,7 @@ const Banner = () => {
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-neutral-content text-center">
                                 <div className="max-w-2xl">
-                                    <h1 className="mb-5 text-7xl font-semibold">Find your <span className="text-pink-600">Right Match</span> here</h1>
+                                    <h1 className="mb-5 text-4xl lg:text-6xl font-semibold">Find your <span className="text-pink-600">Right Match</span> here</h1>
                                     <p className="mb-5">
                                         Most trusted Matrimony Brand in the World.
                                     </p>
@@ -61,14 +61,14 @@ const Banner = () => {
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-neutral-content text-center">
                                 <div className="max-w-3xl">
-                                    <h1 className="mb-5 text-7xl font-semibold">
-                                        <span className='text-6xl'>Find your</span>
-                                        <span className="text-yellow-500 text-6xl"> Match Now </span>
+                                    <h1 className="mb-5 text-4xl lg:text-6xl font-semibold">
+                                        <span className='text-4xl lg:text-6xl'>Find your</span>
+                                        <span className="text-yellow-500 text-4xl lg:text-6xl"> Match Now </span>
                                         <span className="text-yellow-500 ">Wedding </span>Matrimon
                                     </h1>
 
                                     <>
-                                        <ul className="text-yellow-600 list-disc font-bold flex justify-center gap-8 list-inside">
+                                        <ul className="text-yellow-600 list-disc font-bold flex flex-col lg:flex-row justify-center lg:gap-8 list-inside">
                                             <li>Dating</li>
                                             <li>Bride</li>
                                             <li>Matrimony</li>
@@ -92,8 +92,8 @@ const Banner = () => {
                             <div className="hero-overlay bg-opacity-60"></div>
                             <div className="hero-content text-neutral-content text-center">
                                 <div className="max-w-2xl">
-                                    <h1 className="mb-5 text-6xl font-semibold uppercase">Your soulmate may be finding you here</h1>
-                                    <p className="mb-5 text-xl uppercase">
+                                    <h1 className="mb-5 text-3xl text-pink-500 lg:text-6xl font-bold uppercase">Your soulmate may be finding you here</h1>
+                                    <p className="mb-5 lg:text-xl uppercase">
                                         why don't make your move with us?
                                     </p>
                                     <Link to="/biodatas" className="btn mt-5 btn-primary">Get Started</Link>

@@ -12,7 +12,7 @@ const Navbar = () => {
     <li><NavLink to='/about_us'>About Us</NavLink></li>
     <li><NavLink to='/contact_us'>Contact Us</NavLink></li>
     {
-      user && role ==='General' && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
+      user && role ==='General'|| role ==='Premium' && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
     }
   
     {
@@ -64,10 +64,10 @@ const Navbar = () => {
               <button onClick={() => logOut()} type="button" className="px-4 py-2 lg:px-8 lg:py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 mr-2">Logout</button>
               <img className="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src={user.photoURL} alt="" />
             </> : <>
-              <li><NavLink to='/login'>
+              <NavLink to='/login'>
                 {/* <button className="btn btn-outline">Login</button> */}
                 <button type="button" className="px-4 py-2 lg:px-8 lg:py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 mr-2">Login</button>
-              </NavLink></li>
+              </NavLink>
             </>
           }
         </div>

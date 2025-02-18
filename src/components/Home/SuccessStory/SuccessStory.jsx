@@ -20,7 +20,7 @@ const SuccessStory = () => {
       <h2 className="text-2xl font-bold text-center mb-6">Recent Couples</h2>
       <div className="grid md:grid-cols-3 gap-6 text-white">
         {
-          married.slice(0,3).map(item => <div key={item._id} className="shadow-lg  bg-gray-800 rounded-2xl p-6 space-y-4">
+          married.map(item => <div key={item._id} className="shadow-lg  bg-gray-700 rounded-2xl p-6 space-y-4">
             {/* Image */}
             <img
               src={item.coupleImage}

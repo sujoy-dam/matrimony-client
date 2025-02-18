@@ -37,12 +37,12 @@ const GotMarried = () => {
     }
   };
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-lg mx-auto p-6 bg-teal-700 shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-4">Share Your Success Story</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <label className="block mb-2 font-medium">Self Biodata ID</label>
         <Input
-          type="text"
+          type="number"
           name="selfBiodataId"
           placeholder="Self Biodata ID"
           // value={formData.selfBiodataId}
@@ -52,7 +52,7 @@ const GotMarried = () => {
         />
         <label className="block mb-2 font-medium">Partmer Biodata ID</label>
         <Input
-          type="text"
+          type="number"
           name="partnerBiodataId"
           placeholder="Partner Biodata ID"
           // value={formData.partnerBiodataId}
@@ -88,7 +88,7 @@ const GotMarried = () => {
           className="textarea textarea-bordered w-full"
           required
         />
-        <Button type="submit" className="btn btn-primary w-full">
+        <Button type="submit" className="btn btn-accent w-full">
           Submit
         </Button>
       </form>

@@ -19,7 +19,7 @@ const AdminDashboard = () => {
     if(isLoading) return "Loading..."
     return (
         <div>
-            <div className='flex justify-between text-white flex-wrap gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-white  gap-4'>
                 <div className="stats bg-gray-800 shadow duration-200 hover:scale-110">
                     <div className="stat text-white">
                         <div className="stat-title text-white text-4xl">Total Biodata</div>

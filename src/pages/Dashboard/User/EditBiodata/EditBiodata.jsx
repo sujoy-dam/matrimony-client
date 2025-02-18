@@ -81,7 +81,7 @@ const EditBiodata = () => {
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100 py-8">
             <form
-                className="bg-white p-8 rounded-lg shadow-md w-full max-w-xl"
+                className="bg-teal-700 p-8 rounded-lg shadow-md w-full max-w-xl"
                 onSubmit={handleSubmit}
             >
                 <h2 className="text-2xl font-bold mb-6">Biodata Form</h2>
@@ -322,9 +322,9 @@ const EditBiodata = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                    className="w-full bg-green-900 text-white font-bold py-2 px-4 rounded hover:bg-teal-600"
                 >
-                    Submit
+                    Save And Publish Now
                 </button>
             </form>
         </div>
