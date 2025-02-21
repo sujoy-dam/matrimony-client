@@ -61,14 +61,14 @@ const Biodatas = () => {
 
     }
     const handlePre = ()=>{
-        console.log(123)
+        // console.log(123)
         if(currentPage >0){
 
             setCurrentPage(currentPage -1)
         }
     }
     const handleNext = ()=>{
-        console.log('Next')
+        // console.log('Next')
         if(currentPage <pages.length-1){
 
             setCurrentPage(currentPage+1)

@@ -55,8 +55,8 @@ const AuthProvider = ({ children }) => {
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async currentUser => {
-      console.log('CurrentUser-->', currentUser?.email)
-      console.log('CurrentUser-->', currentUser?.displayName)
+      // console.log('CurrentUser-->', currentUser?.email)
+      // console.log('CurrentUser-->', currentUser?.displayName)
       if (currentUser?.email) {
         setUser(currentUser)
         const userInfo ={
@@ -64,8 +64,8 @@ const AuthProvider = ({ children }) => {
           name:currentUser?.displayName,
           image:currentUser?.photoURL,
         }
-        console.table(userInfo)
-        console.log(userInfo)
+        // console.table(userInfo)
+        // console.log(userInfo)
         // return
         await axiosPublic.post(`/users/${currentUser?.email}`, userInfo)
         .then(res=>{
