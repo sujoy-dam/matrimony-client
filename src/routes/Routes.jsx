@@ -19,8 +19,6 @@ import ManageUsers from '../pages/Dashboard/Admin/ManageUsers/ManageUsers'
 import ApprovedPremium from '../pages/Dashboard/Admin/ApprovedPremium/ApprovedPremium'
 import ApprovedContactRequest from '../pages/Dashboard/Admin/ApprovedContactRequest/ApprovedContactRequest'
 import Checkout from '../pages/Checkout/Checkout'
-import UserPremiumModal from '../components/Modal/UserPremiumModal'
-import BiodatasBody from '../components/Biodatas/BiodatasBody'
 import GotMarried from '../pages/Dashboard/User/GotMarried/GotMarried'
 import AdminRoutes from './AdminRoutes'
 // import { element } from 'prop-types'
@@ -38,6 +36,7 @@ export const router = createBrowserRouter([
       {
         path: 'biodatas',
         element: <Biodatas />,
+        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/admin-state`)
       },
       {
         path: 'about_us',
@@ -57,12 +56,10 @@ export const router = createBrowserRouter([
       },
       {
         path: '/checkout/:id',
-        element: <Checkout />,
+        element: <PrivateRoute>
+          <Checkout />
+        </PrivateRoute>,
       },
-      // {
-      //   path:'/become-premium',
-      //   element:<UserPremiumModal/>
-      // }
     ],
   },
   { path: '/login', element: <Login /> },
@@ -76,7 +73,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path:'edit',
+        path: 'edit',
         element: <PrivateRoute>
           <EditBiodata />
         </PrivateRoute>
