@@ -20,10 +20,7 @@ const Home = () => {
     fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
       .then(res => res.json())
       .then(data => {
-        // console.log(data)
-        // const premium = data.filter(item => item.userRole === "Premium")
-        // const premium = data.filter(item=>item.status==="Requested")
-        // console.log(premium)
+        
         setPremium(data)
       })
   }, [])

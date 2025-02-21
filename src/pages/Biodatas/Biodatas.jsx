@@ -46,6 +46,12 @@ const Biodatas = () => {
         fetchAllBio()
     }, [filterGender, filterDivision, searchAge, axiosPublic,currentPage,itemsPerPages])
 
+    const handleAge=e=>{
+        e.preventDefault()
+        // console.log(e.target.age.value)
+        setSearchAge(e.target.age.value)
+    }
+
     const handleItemsPerPages=e=>{
         // console.log(typeof e.target.value)
         const val = parseInt(e.target.value)
@@ -72,7 +78,7 @@ const Biodatas = () => {
     // if (isLoading) return 'Loading...'
     return (
         <div className='w-full p-5 flex flex-col lg:flex-row gap-5'>
-            <div className='w-full lg:w-[25%]'> <BiodatasSidebar setFilterDivision={setFilterDivision} setFilterGender={setFilterGender} setSearchAge={setSearchAge}
+            <div className='w-full lg:w-[25%]'> <BiodatasSidebar handleAge={handleAge} setFilterDivision={setFilterDivision} setFilterGender={setFilterGender} setSearchAge={setSearchAge}
                 filterGender filterDivision searchAge></BiodatasSidebar>
             </div>
             <div className='w-full min-h-screen lg:w-[70%]'>
