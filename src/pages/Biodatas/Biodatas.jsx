@@ -9,7 +9,7 @@ const Biodatas = () => {
     const [allBio, setAllBio] = useState([])
     const [filterGender, setFilterGender] = useState("")
     const [filterDivision, setFilterDivision] = useState("")
-    const [itemsPerPages, setItemsPerPages]=useState(5)
+    const [itemsPerPages, setItemsPerPages]=useState(6)
     const [searchAge, setSearchAge] = useState("")
     const [currentPage,setCurrentPage]=useState(0)
     // console.log(filterGender)
@@ -87,7 +87,7 @@ const Biodatas = () => {
                         allBio.map(item => <PremiumCard item={item} key={item._id}></PremiumCard>)
                     }
                 </div>
-                <div className="pagination space-x-4 mt-5">
+                {<div className="pagination space-x-4 mt-5">
                     {/* <p>{currentPage}</p> */}
                     <button onClick={()=>handlePre()} className='btn bg-gray-700 text-white'>Pre</button>
                     {
@@ -95,12 +95,12 @@ const Biodatas = () => {
                     }
                     <button onClick={()=>handleNext()} className='btn bg-gray-700 text-white'>Next</button>
                     <select value={itemsPerPages} onChange={handleItemsPerPages} className='btn bg-gray-700 text-white'>
-                        <option value="5">5</option>
+                        <option value="5">6</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
                     </select>
-                </div>
+                </div>}
             </div>
         </div>
     );

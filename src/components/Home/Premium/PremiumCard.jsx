@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PremiumCard = ({ item }) => {
     return (
-        <div className="mt-6 bg-gray-700 text-white border-gray-200 shadow-md rounded-lg overflow-hidden">
+        <div className="mt-6 bg-gray-700 h-auto text-white border-gray-200 shadow-md rounded-lg overflow-hidden">
             {/* Profile Image */}
             <div className="w-full p-4 h-56 bg-gray-700 flex justify-center items-center">
                 {item?.photo ? (

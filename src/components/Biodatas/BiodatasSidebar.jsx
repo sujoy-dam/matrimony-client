@@ -2,12 +2,12 @@ import React from 'react';
 
 const BiodatasSidebar = ({ handleAge, setFilterGender, setFilterDivision, setSearchAge, filterGender = "", filterDivision = "", searchAge }) => {
     return (
-        <div className='bg-gray-200 p-5 space-y-4'>
+        <div className='bg-gray-200 p-5 space-y-4 rounded-xl'>
             {/* Filter by age */}
-            <div className='flex w-full p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
-                <form onSubmit={handleAge}>
+            <div className='p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+                <form className='flex w-full' onSubmit={handleAge}>
                     <input
-                        className='px-6 py-4 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
+                        className='px-6 w-full py-4 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
                         type='text'
                         name='age'
                         placeholder='Enter Age'
