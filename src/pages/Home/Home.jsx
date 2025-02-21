@@ -17,14 +17,14 @@ const Home = () => {
   // const [sort, setSort] = useState("")
   // const [status]=useStatus()
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/all-bios`)
+    fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
       .then(res => res.json())
       .then(data => {
         // console.log(data)
-        const premium = data.filter(item => item.userRole === "Premium")
+        // const premium = data.filter(item => item.userRole === "Premium")
         // const premium = data.filter(item=>item.status==="Requested")
         // console.log(premium)
-        setPremium(premium)
+        setPremium(data)
       })
   }, [])
   const sortUsers = (order) => {

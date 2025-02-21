@@ -67,11 +67,12 @@ const BiodataDetails = () => {
             // console.log(data)
             toast.success('Added to your favourite list Successfully')
 
+            navigate('/dashboard/favourite')
         } catch (err) {
             // console.log(err.response.data)
             toast.error(err.response.data)
         } finally {
-            navigate('/dashboard/favourite')
+            // somothing 
         }
     }
     return (
