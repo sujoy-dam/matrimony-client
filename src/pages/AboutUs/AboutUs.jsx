@@ -8,7 +8,7 @@ const AboutUs = () => {
       ];
       
       const testimonials = [
-        { name: "Amit & Priya", feedback: "We met through MatrimonyHub and are happily married now!" },
+        { name: "Amit & Priya", feedback: "We met through Bangla Matrimony and are happily married now!" },
         { name: "Rahul & Sneha", feedback: "A trustworthy platform to find true love!" },
       ];
     return (
@@ -17,7 +17,7 @@ const AboutUs = () => {
       <div className="text-center max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900">About Us</h1>
         <p className="mt-4 text-lg text-gray-600">
-          Welcome to <span className="font-semibold text-indigo-600">MatrimonyHub</span>,
+          Welcome to <span className="font-semibold text-indigo-600">Bangla Matrimony</span>,
           your trusted partner in finding the perfect life companion. We are committed to 
           helping individuals connect with their ideal match based on values, interests, and beliefs.
         </p>

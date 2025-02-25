@@ -12,7 +12,7 @@ const Navbar = () => {
     <li><NavLink to='/about_us'>About Us</NavLink></li>
     <li><NavLink to='/contact_us'>Contact Us</NavLink></li>
     {
-      user && role ==='General'|| role ==='Premium' && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
+      user && role!=="Admin" && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
     }
   
     {
