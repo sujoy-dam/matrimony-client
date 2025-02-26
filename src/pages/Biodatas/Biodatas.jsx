@@ -12,32 +12,16 @@ const Biodatas = () => {
     const [itemsPerPages, setItemsPerPages]=useState(6)
     const [searchAge, setSearchAge] = useState("")
     const [currentPage,setCurrentPage]=useState(0)
-    // console.log(filterGender)
+    
     const { totalBiodata } = useLoaderData()
-    // console.log(totalBiodata)
-    // const itemPerPages = 2;
+    
+    
     const numberOfPages = Math.ceil(totalBiodata / itemsPerPages)
-    // console.log(numberOfPages)
+    
     const pages = []
     for (let i = 0; i < numberOfPages; i++) {
         pages.push(i)
     }
-    // console.log(pages)
-    // const { data: allBio = [], isLoading, refetch } = useQuery({
-    //     queryKey: ['allBio', filterGender, filterDivision, searchAge,axiosPublic],
-    //     queryFn: async () => {
-    //         const { data } = await axiosPublic.get(`/all-bios?filterGender=${filterGender}&filterDivision=${filterDivision}&searchAge=${searchAge}`)
-    //         // console.log(data)
-    //         return data
-    //     }
-    // })
-    // useEffect(() => {
-    //     const fetchAllBio = async () => {
-    //         const { data } = await axiosPublic.get(`/all-bios?filterGender=${filterGender}&filterDivision=${filterDivision}&searchAge=${searchAge}`)
-    //         setAllBio(data)
-    //     }
-    //     fetchAllBio()
-    // }, [filterGender, filterDivision, searchAge, axiosPublic])
     useEffect(() => {
         const fetchAllBio = async () => {
             const { data } = await axiosPublic.get(`/all-bios?filterGender=${filterGender}&filterDivision=${filterDivision}&searchAge=${searchAge}&page=${currentPage}&size=${itemsPerPages}`)
@@ -48,33 +32,32 @@ const Biodatas = () => {
 
     const handleAge=e=>{
         e.preventDefault()
-        // console.log(e.target.age.value)
         setSearchAge(e.target.age.value)
     }
 
     const handleItemsPerPages=e=>{
-        // console.log(typeof e.target.value)
+       
         const val = parseInt(e.target.value)
-        // console.log(typeof val)
+       
         setItemsPerPages(val)
         setCurrentPage(0)
 
     }
     const handlePre = ()=>{
-        // console.log(123)
+       
         if(currentPage >0){
 
             setCurrentPage(currentPage -1)
         }
     }
     const handleNext = ()=>{
-        // console.log('Next')
+        
         if(currentPage <pages.length-1){
 
             setCurrentPage(currentPage+1)
         }
     }
-    // console.log(filterDivision)
+   
     // if (isLoading) return 'Loading...'
     return (
         <div className='w-full p-5 flex flex-col lg:flex-row gap-5'>
