@@ -31,7 +31,7 @@ const ApprovedPremium = () => {
           }).then(async(result) => {
             if (result.isConfirmed) {
                 // return console.log('yes')
-                const { data } = await axiosSecure.patch(`/update-bios-status/${id}`, { role})
+                const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role})
                 refetch()
                 // console.log(data)
               Swal.fire({
@@ -67,13 +67,13 @@ const ApprovedPremium = () => {
                             approvePremium.map((item, index) => <tr key={item._id}>
                                 <th>{index + 1}</th>
                                 <td>{item.name}</td>
-                                <td>{item.email}</td>
+                                <td>{item.userEmail}</td>
                                 <td>{item.biodataId}</td>
                                 <td>{item?.userRole}</td>
                                 <td>{item?.status}</td>
                                 <td>
                                     {
-                                        item?.role === 'Premium'?<button className='btn btn-disabled'>Make Premium</button>:<button className='btn bg-gray-800 text-white' onClick={()=>handleMakePremium(item?._id,item?.userRole,"Premium")}>Make Premium</button>
+                                        item?.userRole === 'Premium'?<button className='btn btn-disabled'>Make Premium</button>:<button className='btn bg-gray-800 text-white' onClick={()=>handleMakePremium(item?._id,item?.userRole,"Premium")}>Make Premium</button>
                                     }
                                 </td>
                             </tr>)

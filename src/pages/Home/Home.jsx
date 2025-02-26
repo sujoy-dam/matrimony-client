@@ -23,7 +23,7 @@ const Home = () => {
         
         setPremium(data)
       })
-  }, [])
+  }, [premium])
   const sortUsers = (order) => {
     // console.log(order)
     if (order === 'asc') {

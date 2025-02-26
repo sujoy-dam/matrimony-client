@@ -79,6 +79,7 @@ const CheckoutForm = ({ contact }) => {
                 const paymentInfo = {
                     userEmail: user?.email,
                     userName: user?.displayName,
+                    biodataName:contact?.name,
                     biodataEmail: contact?.userEmail,
                     mobileNo: contact?.mobileNumber,
                     biodataID: contact?.biodataId,

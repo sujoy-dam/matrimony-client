@@ -8,7 +8,7 @@ const CountDown = () => {
     const [male, setMale]=useState([])
     const [female, setFemale]=useState([])
     const { data: allBio = [], isLoading, refetch } = useQuery({
-        queryKey: ['allBio'],
+        queryKey: ['allBio',male,female],
         queryFn: async () => {
             const { data } = await axiosPublic(`/all-bios`)
             // console.log(data)
