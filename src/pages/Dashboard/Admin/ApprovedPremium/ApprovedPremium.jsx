@@ -12,14 +12,12 @@ const ApprovedPremium = () => {
         queryKey: ['approvePremium'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/all-bios')
-            // console.log(data)
             const premiumReques = data.filter(item => item.status === 'Requested for Premium')
             return premiumReques
         }
     })
-    // console.log(approvePremium)
     const handleMakePremium = async (id, preStatus, role) => {
-        // console.table({ id, preStatus, role })
+
         Swal.fire({
             title: "Are you sure?",
             text: "Do You Want to Make Premium this Biodata?",
@@ -28,27 +26,26 @@ const ApprovedPremium = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes"
-          }).then(async(result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                // return console.log('yes')
-                const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role})
+
+                const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role })
                 refetch()
-                // console.log(data)
-              Swal.fire({
-                title: "Successful",
-                text: "User make premium successfully.",
-                icon: "success"
-              });
+                Swal.fire({
+                    title: "Successful",
+                    text: "User make premium successfully.",
+                    icon: "success"
+                });
             }
-          });
-        // if(preStatus === Pre)
-       
+        });
+
+
     }
-    if(isLoading) return 'Loading...'
+    if (isLoading) return 'Loading...'
     return (
         <div>
             <div className="overflow-x-auto">
-                {approvePremium.length>0?<table className="table">
+                {approvePremium.length > 0 ? <table className="table">
                     {/* head */}
                     <thead className='bg-gray-800 text-white'>
                         <tr>
@@ -73,17 +70,17 @@ const ApprovedPremium = () => {
                                 <td>{item?.status}</td>
                                 <td>
                                     {
-                                        item?.userRole === 'Premium'?<button className='btn btn-disabled'>Make Premium</button>:<button className='btn bg-gray-800 text-white' onClick={()=>handleMakePremium(item?._id,item?.userRole,"Premium")}>Make Premium</button>
+                                        item?.userRole === 'Premium' ? <button className='btn btn-disabled'>Make Premium</button> : <button className='btn bg-gray-800 text-white' onClick={() => handleMakePremium(item?._id, item?.userRole, "Premium")}>Make Premium</button>
                                     }
                                 </td>
                             </tr>)
                         }
                         {/* row 2 */}
-                       
+
                         {/* row 3 */}
-                      
+
                     </tbody>
-                </table>:<h1 className='text-center text-3xl'>No Approval Request is Available</h1>}
+                </table> : <h1 className='text-center text-3xl'>No Approval Request is Available</h1>}
             </div>
 
         </div>

@@ -10,12 +10,11 @@ const ApprovedContactRequest = () => {
         queryKey: ['contact'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/all-contact')
-            // console.log(data)
             return data
         }
     })
     const handleMakeApprove = async (id, preStatus, status) => {
-        // console.table({ id, preStatus, status })
+        
         if(preStatus === status){
             return toast.error("Status Already Approved")
         }
@@ -35,7 +34,6 @@ const ApprovedContactRequest = () => {
                 const { data } = await axiosSecure.patch(`/approve-status/${id}`, { status })
                 toast.success('Request Accepted')
                 refetch()
-                // console.log(data)
               Swal.fire({
                 title: "Successful",
                 text: "Approve Request Successfully",

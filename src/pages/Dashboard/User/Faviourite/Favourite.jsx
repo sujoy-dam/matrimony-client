@@ -11,15 +11,15 @@ const Favourite = () => {
         queryKey: ['favourite', user?.email],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/all-favourite/${user?.email}`)
-            // console.log(typeof data)
+           
             // refetch();
-            // console.log(data[0].item)
+            
             return data
         }
 
     })
     if (isLoading) return "Loading..."
-    // console.log(favourite)
+   
     const handleDelete = async (id) => {
         Swal.fire({
             title: "Are you sure?",

@@ -10,15 +10,14 @@ const ManageUsers = () => {
         queryKey: ['users'],
         queryFn: async () => {
             const { data } = await axiosSecure('/all-bios')
-            // const request = data.filter(item=>item?.status ==="Pending")
             return data
-            // return request
+            
         }
 
     })
     if (isLoading) return "Loading..."
     const handleMakePremium = async (id, preStatus, role) => {
-        // console.table({ id, preStatus, role })
+        
         Swal.fire({
             title: "Are you sure?",
             text: "Do You Want to Make Premium this Biodata?",
@@ -34,7 +33,6 @@ const ManageUsers = () => {
                 }
                 const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role })
                 refetch()
-                // console.log(data)
                 toast.success('Status Updated Successfully')
                 Swal.fire({
                     title: "Successful",
@@ -46,7 +44,6 @@ const ManageUsers = () => {
         
     }
     const handleMakeAdmin = async (id, preStatus, role,) => {
-        // console.table({ id, preStatus, role })
         Swal.fire({
             title: "Are you sure?",
             text: "Do You Want to Make Admin this user?",
@@ -62,7 +59,6 @@ const ManageUsers = () => {
                 }
                 const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role })
                 refetch()
-                // console.log(data)
                 toast.success('Status Updated Successfully')
               Swal.fire({
                 title: "Successful",
@@ -72,7 +68,7 @@ const ManageUsers = () => {
             }
           });
     }
-    // console.log(users)
+    
     return (
         <div>
             <div className="overflow-x-auto">

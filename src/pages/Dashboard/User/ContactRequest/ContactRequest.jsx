@@ -7,18 +7,18 @@ import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 
 const ContactRequest = () => {
-    const {user}=useAuth()
+    const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
-    const {data:contact=[],refetch, isLoading}=useQuery({
-        queryKey:['contact', user?.email],
-        queryFn:async()=>{
-            const {data}=await axiosSecure.get(`/contact/${user?.email}`)
-            // console.log(data)
+    const { data: contact = [], refetch, isLoading } = useQuery({
+        queryKey: ['contact', user?.email],
+        queryFn: async () => {
+            const { data } = await axiosSecure.get(`/contact/${user?.email}`)
+
             return data
         }
     })
-    // console.log(contact)
-    const handleDelete = async(id)=>{
+
+    const handleDelete = async (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -27,32 +27,31 @@ const ContactRequest = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then(async(result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                try{
-                    const {data}=await axiosSecure.delete(`/delete-contact/${id}`)
-                    // console.log(data)
+                try {
+                    const { data } = await axiosSecure.delete(`/delete-contact/${id}`)
+
                     toast.success("Deleted Successfully")
                     refetch()
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success"
-                      });
-                }catch(err){
-                    // console.log(err)
+                    });
+                } catch (err) {
                     toast.error(err)
                 }
-             
+
             }
-          });
-        // console.log(id)
-       
+        });
+
+
     }
     return (
         <div>
             <div className="overflow-x-auto">
-                {contact.length ===0?<h1 className='text-center text-3xl font-bold'>You do not have contact request</h1>:<table className="table">
+                {contact.length === 0 ? <h1 className='text-center text-3xl font-bold'>You do not have contact request</h1> : <table className="table">
                     {/* head */}
                     <thead>
                         <tr>
@@ -68,15 +67,15 @@ const ContactRequest = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            contact.map((item,index)=><tr key={item._id}>
-                            <th>{index+1}</th>
-                            <th>{item.biodataName}</th>
-                            <th>{item.biodataID}</th>
-                            <th>{item.status}</th>
-                            <th>{item?.status=== 'Approved'? item.mobileNo:'Pending'}</th>
-                            <th>{item?.status=== 'Approved'? item.biodataEmail:'Pending'}</th>
-                            <th><button className='btn' onClick={()=>handleDelete(item._id)}>Delete</button></th>
-                        </tr>)
+                            contact.map((item, index) => <tr key={item._id}>
+                                <th>{index + 1}</th>
+                                <th>{item.biodataName}</th>
+                                <th>{item.biodataID}</th>
+                                <th>{item.status}</th>
+                                <th>{item?.status === 'Approved' ? item.mobileNo : 'Pending'}</th>
+                                <th>{item?.status === 'Approved' ? item.biodataEmail : 'Pending'}</th>
+                                <th><button className='btn' onClick={() => handleDelete(item._id)}>Delete</button></th>
+                            </tr>)
                         }
                         {/* row 2 */}
 
