@@ -25,19 +25,19 @@ const Home = () => {
       })
   }, [premium])
   const sortUsers = (order) => {
-    // console.log(order)
+    
     if (order === 'asc') {
 
       const sortedAsc = [...premium].sort((a, b) => a.age - b.age);
-      // console.log("Ascending:", sortedAsc);
+      
       setPremium(sortedAsc)
       return
     }
     const sortedDesc = [...premium].sort((a, b) => b.age - a.age);
-    // console.log("Descending:", sortedDesc);
+    
     setPremium(sortedDesc)
   };
-  // console.log(status)
+  
   return (
     <div className='container mx-auto space-y-10'>
       <Helmet>

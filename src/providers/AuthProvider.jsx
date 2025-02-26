@@ -64,9 +64,6 @@ const AuthProvider = ({ children }) => {
           name:currentUser?.displayName,
           image:currentUser?.photoURL,
         }
-        // console.table(userInfo)
-        // console.log(userInfo)
-        // return
         await axiosPublic.post(`/users/${currentUser?.email}`, userInfo)
         .then(res=>{
           console.log(res.data)

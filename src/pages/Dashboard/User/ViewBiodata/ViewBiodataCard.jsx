@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ViewBiodataCard = ({ item }) => {
-    // console.log(item.userEmail)
     const {
         name,
         photo,

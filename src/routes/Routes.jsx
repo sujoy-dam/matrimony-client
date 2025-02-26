@@ -51,7 +51,6 @@ export const router = createBrowserRouter([
         element: <PrivateRoute>
           <BiodataDetails />
         </PrivateRoute>,
-        // loader:({params})=>console.log(params.id)
         loader: async ({ params }) => await fetch(`${import.meta.env.VITE_API_URL}/bio/${params.id}`)
       },
       {

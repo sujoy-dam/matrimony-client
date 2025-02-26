@@ -32,7 +32,7 @@ const Favourite = () => {
         }).then(async(result) => {
             if (result.isConfirmed) {
                 const { data } = await axiosSecure.delete(`/favourite-delete/${id}`)
-                // console.log(data)
+                
                 refetch()
                 Swal.fire({
                     title: "Deleted!",
@@ -41,7 +41,7 @@ const Favourite = () => {
                 });
             }
         });
-        // console.log(id)
+        
 
     }
     return (

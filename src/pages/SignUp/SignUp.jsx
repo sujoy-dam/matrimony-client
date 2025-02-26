@@ -16,7 +16,7 @@ const SignUp = () => {
     const email = form.email.value
     const password = form.password.value
     const photo =await imageUpload(form.image.files[0])
-    // console.log(photo,name,email)
+    
 // return
     try {
       //2. User Registration
@@ -27,12 +27,12 @@ const SignUp = () => {
         name,
         photo
       )
-      // console.log(result)
+      
 
       navigate('/')
       toast.success('Signup Successful')
     } catch (err) {
-      // console.log(err)
+     
       toast.error(err?.message)
     }
   }
@@ -46,7 +46,7 @@ const SignUp = () => {
       navigate('/')
       toast.success('Signup Successful')
     } catch (err) {
-      // console.log(err)
+      
       toast.error(err?.message)
     }
   }

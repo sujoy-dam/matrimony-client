@@ -11,7 +11,6 @@ const GotMarried = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add API call or database update logic here
-    // console.log("Submitting Success Story:", formData);
     const form = e.target
     const selfBiodataID = form.selfBiodataId.value;
     const partnerBiodataID = form.partnerBiodataId.value;
@@ -25,14 +24,14 @@ const GotMarried = () => {
       storyReview,
       dateOfMarriage
     }
-    // console.table(gotMarriedInfo)
+
     try {
       const { data } = await axiosSecure.post(`/got-married`, gotMarriedInfo)
-      // console.log(data)
+      
       // navigate('/dashboard/view')
       toast.success('Added successfully')
     } catch (err) {
-      // console.log(err.response.data)
+      
       toast.error(err.response.data)
     }
   };
