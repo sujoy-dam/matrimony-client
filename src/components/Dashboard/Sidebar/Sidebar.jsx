@@ -9,8 +9,6 @@ const Sidebar = () => {
     const { logOut } = useAuth()
     const [role,] = useRole()
     const {user}=useAuth()
-    // const role='admin';
-    // console.log(role)
     return (
         <div className='w-full lg:w-1/5 min-h-screen bg-gray-800 text-white'>
             <ul className='menu space-y-2 text-xl'>
