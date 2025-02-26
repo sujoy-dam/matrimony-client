@@ -11,7 +11,6 @@ const CountDown = () => {
         queryKey: ['allBio',male,female],
         queryFn: async () => {
             const { data } = await axiosPublic(`/all-bios`)
-            // console.log(data)
             const male = data.filter(item=>item.gender==='Male')
             setMale(male)
             const female = data.filter(item=> item.gender==='Female')
@@ -24,7 +23,6 @@ const CountDown = () => {
         queryKey: ['married'],
         queryFn: async () => {
             const { data } = await axiosPublic(`/all-married`)
-            // console.log(data)
             return data
         }
     })
