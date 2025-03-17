@@ -29,9 +29,9 @@ const CountDown = () => {
     if(isLoading) return "Loading..."
     return (
         <div>
-            <div className="stats text-white bg-gray-800 stats-vertical lg:stats-horizontal flex-1 flex p-10 shadow">
+            <div className="stats bg-base-100 stats-vertical lg:stats-horizontal flex-1 flex p-10 shadow-xl">
                 <div className="stat">
-                    <div className="stat-title text-white text-4xl">Total Biodata</div>
+                    <div className="stat-title text-4xl">Total Biodata</div>
                     {/* <div className="stat-value">{allBio.length}</div> */}
                     <div className="stat-value text-7xl">
                     <CountUp delay={2} duration={30} end={allBio.length} />
@@ -40,7 +40,7 @@ const CountDown = () => {
                 </div>
 
                 <div className="stat">
-                    <div className="stat-title text-white text-4xl">Female</div>
+                    <div className="stat-title text-4xl">Female</div>
                     {/* <div className="stat-value">{female.length}</div> */}
                     <div className="stat-value text-7xl">
                     <CountUp delay={2} duration={30} end={female.length} />
@@ -49,7 +49,7 @@ const CountDown = () => {
                 </div>
 
                 <div className="stat">
-                    <div className="stat-title text-white text-4xl">Male</div>
+                    <div className="stat-title text-4xl">Male</div>
                     {/* <div className="stat-value">{male.length}</div> */}
                     <div className="stat-value text-7xl">
                     <CountUp delay={2} duration={30} end={male.length} />
@@ -57,7 +57,7 @@ const CountDown = () => {
                     {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
                 </div>
                 <div className="stat">
-                    <div className="stat-title text-white text-4xl">Completed</div>
+                    <div className="stat-title text-4xl">Completed</div>
                     <div className="stat-value text-7xl">
                     <CountUp delay={2} duration={30} end={married.length} />
                     </div>

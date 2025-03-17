@@ -2,27 +2,39 @@ import { Link, NavLink } from "react-router-dom"
 import useAuth from "../../../hooks/useAuth"
 import './Navbar.css'
 import useRole from "../../../hooks/useRole"
+import { useEffect, useState } from "react"
 
 const Navbar = () => {
   const { user, logOut } = useAuth()
-  const [role]=useRole()
+  const [role] = useRole()
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  console.log(theme)
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleToggle = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
   const nav = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/biodatas'>Biodatas</NavLink></li>
     <li><NavLink to='/about_us'>About Us</NavLink></li>
     <li><NavLink to='/contact_us'>Contact Us</NavLink></li>
     {
-      user && role!=="Admin" && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
+      user && role !== "Admin" && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
     }
-  
+
     {
-      user && role ==='Admin' && <li><NavLink to='/dashboard/admin_dashboard'>Dashboard</NavLink></li>
+      user && role === 'Admin' && <li><NavLink to='/dashboard/admin_dashboard'>Dashboard</NavLink></li>
     }
   </>
 
   return (
-    <>
-      <div className="navbar py-5 bg-gray-800 dark:bg-gray-100 text-gray-300 dark:text-gray-800 border-4 sticky top-0 z-10">
+    <div className="bg-base-100 shadow-xl">
+      <div className="navbar container mx-auto py-5 dark:bg-gray-100 dark:text-gray-800 sticky top-0 z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,7 +57,17 @@ const Navbar = () => {
               {nav}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-lg lg:text-2xl">Bangla Matrimony</Link>
+          <div className="flex items-center">
+            <Link to="/" className="btn btn-ghost text-lg lg:text-2xl">Bangla Matrimony</Link>
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                <button onClick={handleToggle}>
+                  <input type="checkbox" className="toggle" defaultChecked />
+                </button>
+              </label>
+            </div>
+          </div>
+
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -72,7 +94,7 @@ const Navbar = () => {
           }
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

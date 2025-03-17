@@ -12,6 +12,7 @@ const ApprovedPremium = () => {
         queryKey: ['approvePremium'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/all-bios')
+            console.log(data)
             const premiumReques = data.filter(item => item.status === 'Requested for Premium')
             return premiumReques
         }
@@ -30,6 +31,7 @@ const ApprovedPremium = () => {
             if (result.isConfirmed) {
 
                 const { data } = await axiosSecure.patch(`/update-user-role/${id}`, { role })
+                console.log(data)
                 refetch()
                 Swal.fire({
                     title: "Successful",
@@ -45,7 +47,7 @@ const ApprovedPremium = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                {approvePremium.length > 0 ? <table className="table">
+                {approvePremium?.length > 0 ? <table className="table">
                     {/* head */}
                     <thead className='bg-gray-800 text-white'>
                         <tr>

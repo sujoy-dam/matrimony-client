@@ -8,7 +8,7 @@ const HowItWorks = () => {
       ];
       
     return (
-        <div className="bg-gray-800 text-white py-12 px-6">
+        <div className="bg-base-100 shadow-xl border rounded-xl py-12 px-6">
             {/* Hero Section */}
             <div className="text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl font-bold">How It Works</h1>

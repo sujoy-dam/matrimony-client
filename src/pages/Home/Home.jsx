@@ -20,7 +20,7 @@ const Home = () => {
     fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
       .then(res => res.json())
       .then(data => {
-        
+        console.log(data)
         setPremium(data)
       })
   }, [premium])
@@ -34,7 +34,6 @@ const Home = () => {
       return
     }
     const sortedDesc = [...premium].sort((a, b) => b.age - a.age);
-    
     setPremium(sortedDesc)
   };
   
@@ -49,7 +48,7 @@ const Home = () => {
       </div>
       <div className=''>
         <Heading title={"PREMIUM MEMBER"} subtitle={"Here tou can find premium member"} center={true}></Heading>
-        <div>
+        <div className='mt-10'>
           <select
             name='category'
             id='category'
