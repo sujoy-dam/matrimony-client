@@ -21,6 +21,7 @@ import ApprovedContactRequest from '../pages/Dashboard/Admin/ApprovedContactRequ
 import Checkout from '../pages/Checkout/Checkout'
 import GotMarried from '../pages/Dashboard/User/GotMarried/GotMarried'
 import AdminRoutes from './AdminRoutes'
+import Profile from '../pages/Dashboard/User/Profile/Profile'
 // import { element } from 'prop-types'
 
 export const router = createBrowserRouter([
@@ -99,6 +100,12 @@ export const router = createBrowserRouter([
         path: 'gotMarried',
         element: <PrivateRoute>
           <GotMarried />
+        </PrivateRoute>
+      },
+      {
+        path:"profile",
+        element:<PrivateRoute>
+          <Profile/>
         </PrivateRoute>
       },
       //  admin route here

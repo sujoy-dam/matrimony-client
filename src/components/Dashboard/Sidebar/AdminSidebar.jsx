@@ -12,6 +12,8 @@ const AdminSidebar = () => {
             </li>
             <li><NavLink to='/dashboard/contact_request'>Approved Contact Request</NavLink>
             </li>
+            <li><NavLink to='/dashboard/profile'>Profile</NavLink>
+            </li>
         </div>
     );
 };

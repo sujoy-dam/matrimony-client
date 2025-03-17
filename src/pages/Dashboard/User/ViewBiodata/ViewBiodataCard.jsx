@@ -24,17 +24,17 @@ const ViewBiodataCard = ({ item }) => {
     return (
 
         <>
-            <div className="lg:flex justify-between items-center gap-20 p-5 lg:w-[1000px] bg-white shadow-lg rounded-lg border-2 border-gray-800">
+            <div className="lg:flex justify-between items-center gap-20 p-5 lg:w-[1000px] bg-white shadow-lg rounded-lg border">
                 {/* Profile Image */}
-                <div className="w-full md:w-1/2 bg-gray-200">
+                <div className="w-full md:w-1/2 bg-base-200">
                     {photo ? (
                         <img
                             src={photo}
                             alt={name}
-                            className="border-4 md:w-[800px]"
+                            className="border md:w-[800px]"
                         />
                     ) : (
-                        <div className="flex items-center justify-center h-full text-gray-500">
+                        <div className="flex items-center justify-center h-full">
                             No Image
                         </div>
                     )}

@@ -9,6 +9,7 @@ import HowItWorks from '../../components/Home/HowItWorks/HowItWorks'
 import CountDown from '../../components/Home/CountDown/CountDown'
 import SuccessStory from '../../components/Home/SuccessStory/SuccessStory'
 import Heading from '../../components/Shared/Heading'
+import FAQ from '../../components/Home/FAQ/FAQ'
 // import Plants from '../../components/Home/Plants'
 
 const Home = () => {
@@ -17,14 +18,24 @@ const Home = () => {
   // const [sort, setSort] = useState("")
   // const [status]=useStatus()
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        setPremium(data)
-      })
+    fetchPremium()
+    // fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     setPremium(data)
+    //   })
   }, [premium])
+  const fetchPremium = ()=>{
+    fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setPremium(data)
+    })
+  }
   const sortUsers = (order) => {
+    console.log(order)
     
     if (order === 'asc') {
 
@@ -61,7 +72,7 @@ const Home = () => {
             <option value='asc'>Ascending Order</option>
           </select>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
 
           {
             premium.slice(0,6).map(item => <PremiumCard item={item} key={item._id}></PremiumCard>)
@@ -77,6 +88,9 @@ const Home = () => {
       </div>
       <div>
         <SuccessStory></SuccessStory>
+      </div>
+      <div>
+        <FAQ/>
       </div>
     </div>
   )

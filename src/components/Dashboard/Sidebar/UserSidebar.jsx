@@ -14,6 +14,7 @@ const UserSidebar = () => {
             <li className=''><NavLink to='/dashboard/my_contact_request'>My Contact Request</NavLink></li>
             <li className=''><NavLink to='/dashboard/favourite'>Favourites Biodata</NavLink></li>
             <li className=''><NavLink to='/dashboard/gotMarried'>Got Married</NavLink></li>
+            <li className=''><NavLink to='/dashboard/profile'>Profile</NavLink></li>
         </div>
     );
 };

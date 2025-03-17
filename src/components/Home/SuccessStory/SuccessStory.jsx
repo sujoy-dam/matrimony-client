@@ -16,17 +16,17 @@ console.log(married)
 if(isLoading) return "Loading..."
   
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-gray-50 border-gray-800 border-4 mb-10 rounded-xl">
+    <div className="max-w-5xl mx-auto p-6 bg-base-100 border mb-10 rounded-xl shadow-xl">
       <h2 className="text-4xl font-bold text-center mb-6">Marriage Success Stories</h2>
       <h2 className="text-2xl font-bold text-center mb-6">Recent Couples</h2>
-      <div className="grid md:grid-cols-3 gap-6 text-white">
+      <div className="grid md:grid-cols-3 gap-6">
         {
-          married.map(item => <div key={item._id} className="shadow-lg  bg-gray-700 rounded-2xl p-6 space-y-4">
+          married.map(item => <div key={item._id} className="shadow-lg bg-base-200 rounded-2xl p-6 space-y-4">
             {/* Image */}
             <img
               src={item.coupleImage}
               // alt={name}
-              className="w-32 h-32 object-cover rounded-full mx-auto border-4 border-gray-300"
+              className="w-32 h-32 object-cover rounded-full mx-auto"
             />
 
             {/* Name & Marriage Date */}
