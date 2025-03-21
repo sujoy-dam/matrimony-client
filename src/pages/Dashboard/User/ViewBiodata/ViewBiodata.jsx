@@ -24,19 +24,19 @@ const ViewBiodata = () => {
     
   
     return (
-        <div>
+        <div className='flex flex-col items-center justify-center'>
             {bio.length===0 ?<h1 className='text-center text-3xl font-bold'>You do not have biodata</h1>: <button className='btn bg-gray-800 text-white' onClick={() => setIsOpen(true)}>Make biodata to premium</button>}
             {/* <button className='btn btn-primary' onClick={() => setIsOpen(true)}>Make biodata to premium</button> */}
             {/* <button className='btn btn-primary'>Make biodata to premium</button> */}
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+            <div className=''>
 
                 {
-                   bio.map(item => <ViewBiodataCard item={item} key={item._id}></ViewBiodataCard>)
+                    bio.map(item => <ViewBiodataCard item={item} key={item._id}></ViewBiodataCard>)
                 }
                 {/* {bio && <ViewBiodataCard item={bio}></ViewBiodataCard>} */}
             </div>
-            <Modal setIsOpen={setIsOpen} isOpen={isOpen}></Modal>
+                <Modal setIsOpen={setIsOpen} isOpen={isOpen}></Modal>
         </div>
     );
 };

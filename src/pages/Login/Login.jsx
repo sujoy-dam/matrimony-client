@@ -12,12 +12,16 @@ const Login = () => {
   const from = location?.state?.from?.pathname || '/'
   if (user) return <Navigate to={from} replace={true} />
   if (loading) return <LoadingSpinner />
-  // form submit handler
-  const handleSubmit = async event => {
-    event.preventDefault()
-    const form = event.target
-    const email = form.email.value
-    const password = form.password.value
+
+  // go to admin site by click a button
+  const goAdminSite = async () => {
+    console.log('go to admin site')
+    // event.preventDefault()
+    // const form = event.target
+    const email = 'sujoy1@gmail.com';
+    const password = '123456'
+    // console.log(email, password)
+    // return
 
     try {
       //User Login
@@ -26,7 +30,25 @@ const Login = () => {
       navigate(from, { replace: true })
       toast.success('Login Successful')
     } catch (err) {
-      
+
+      toast.error(err?.message)
+    }
+
+  }
+  // form submit handler
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const form = event.target
+    const email = form.email.value
+    const password = form.password.value
+    try {
+      //User Login
+      await signIn(email, password)
+
+      navigate(from, { replace: true })
+      toast.success('Login Successful')
+    } catch (err) {
+
       toast.error(err?.message)
     }
   }
@@ -43,11 +65,11 @@ const Login = () => {
     }
   }
   return (
-    <div className='flex justify-center items-center min-h-screen bg-white'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-800 text-white'>
-        <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Log In</h1>
-          <p className='text-sm text-gray-400'>
+    <div className='flex justify-center items-center min-h-screen'>
+      <div className='flex flex-col max-w-md rounded-md sm:px-10 bg-blue-500 text-white py-3'>
+        <div className='mb-4 text-center'>
+          <h1 className='text-3xl font-bold'>Log In</h1>
+          <p className='text-sm'>
             Sign in to access your account
           </p>
         </div>
@@ -104,13 +126,13 @@ const Login = () => {
           </div>
         </form>
         <div className='space-y-1'>
-          <button className='text-xs hover:underline hover:text-lime-500 text-gray-400'>
+          <button className='text-xs hover:underline hover:text-lime-500'>
             Forgot password?
           </button>
         </div>
         <div className='flex items-center pt-4 space-x-1'>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
-          <p className='px-3 text-sm dark:text-gray-400'>
+          <div className='flex-1 h-px sm:w-16'></div>
+          <p className='px-3 text-sm'>
             Login with social accounts
           </p>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
@@ -123,7 +145,7 @@ const Login = () => {
 
           <p>Continue with Google</p>
         </div>
-        <p className='px-6 text-sm text-center text-gray-400'>
+        <p className='px-6 text-sm text-center'>
           Don&apos;t have an account yet?{' '}
           <Link
             to='/signup'
@@ -133,6 +155,7 @@ const Login = () => {
           </Link>
           .
         </p>
+        <button onClick={goAdminSite} className='btn'>Admin Site</button>
       </div>
     </div>
   )

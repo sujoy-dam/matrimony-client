@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HowItWorks = () => {
     const steps = [
         { icon: "📝", title: "Create Profile", description: "Sign up and create your detailed profile to find a compatible match." },
         { icon: "🔍", title: "Find Matches", description: "Browse through verified profiles and find matches that suit you best." },
         { icon: "💌", title: "Connect & Communicate", description: "Send interest, chat securely, and take the next step towards marriage." },
-      ];
-      
+    ];
+
     return (
         <div className="bg-base-100 shadow-xl border rounded-xl py-12 px-6">
             {/* Hero Section */}
@@ -46,7 +47,9 @@ const HowItWorks = () => {
             <div className="mt-16 text-center">
                 <h2 className="text-2xl font-bold">Ready to Find Your Match?</h2>
                 <p className="mt-2">Join MatrimonyHub today and take the first step towards a lifetime of happiness.</p>
-                <button className="btn btn-primary mt-4">Get Started</button>
+                <Link to="biodatas">
+                    <button className="btn btn-primary mt-4">Get Started</button>
+                </Link>
             </div>
         </div>
     );

@@ -2,12 +2,12 @@ import React from 'react';
 
 const BiodatasSidebar = ({ handleAge, setFilterGender, setFilterDivision, setSearchAge, filterGender = "", filterDivision = "", searchAge }) => {
     return (
-        <div className='bg-gray-200 p-5 space-y-4 rounded-xl'>
+        <div className='flex flex-col md:flex-row space-y-4 md:space-y-0 p-5 space-x-4'>
             {/* Filter by age */}
-            <div className='p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+            <div className='overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300 w-72'>
                 <form className='flex w-full' onSubmit={handleAge}>
                     <input
-                        className='px-6 w-full py-4 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
+                        className='w-full p-4 bg-transparent outline-none focus:placeholder-transparent'
                         type='text'
                         name='age'
                         placeholder='Enter Age'
@@ -21,10 +21,10 @@ const BiodatasSidebar = ({ handleAge, setFilterGender, setFilterDivision, setSea
             </div>
 
             {/* Filter by gender */}
-            <div>
+            <div className='w-72 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
                 <select
                     name='gender'
-                    className='border p-4 rounded-lg w-full'
+                    className='border bg-transparent p-4 rounded-lg w-full'
                     onChange={(e) => setFilterGender(e.target.value)}
                 // value={filterGender || ""}
                 >
@@ -35,10 +35,10 @@ const BiodatasSidebar = ({ handleAge, setFilterGender, setFilterDivision, setSea
             </div>
 
             {/* Filter by division */}
-            <div>
+            <div className='w-72 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
                 <select
                     name='division'
-                    className='border p-4 rounded-lg w-full'
+                    className='border bg-transparent p-4 rounded-lg w-full'
                     onChange={(e) => setFilterDivision(e.target.value)}
                 // value={filterDivision}
                 >

@@ -13,7 +13,7 @@ const Sidebar = ({toggleSidebar, setToggleSidebar}) => {
     const [role,] = useRole()
     const { user } = useAuth()
     return (
-        <div className={` absolute md:static lg:w-1/5 min-h-screen bg-gray-800 text-white ${toggleSidebar===true && "hidden"}`}>
+        <div className={` absolute md:static lg:w-1/5 z-20 min-h-screen bg-gray-800 text-white ${toggleSidebar===true && "hidden"}`}>
             <div className="text-white flex justify-between items-center my-5 px-2">
                 <h1 className='text-2xl'>Dashboard</h1>
                 <button onClick={()=>setToggleSidebar(!toggleSidebar)}>

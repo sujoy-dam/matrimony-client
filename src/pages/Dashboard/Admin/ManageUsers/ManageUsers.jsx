@@ -71,11 +71,11 @@ const ManageUsers = () => {
     }
     
     return (
-        <div>
+        <>
             <div className="overflow-x-auto">
-                <table className="table border-gray-800 border-2">
+                <table className="table table-xs border">
                     {/* head */}
-                    <thead className='bg-gray-800 text-white'>
+                    <thead>
                         <tr>
                             <th></th>
                             <th>Name</th>
@@ -86,7 +86,7 @@ const ManageUsers = () => {
                             <th>Make Premium</th>
                         </tr>
                     </thead>
-                    <tbody className='border-gray-800 border-b-2'>
+                    <tbody className=''>
                         {/* row 1 */}
                         {
                             users.map((user, index) => <tr key={user._id}>
@@ -116,7 +116,7 @@ const ManageUsers = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </>
     );
 };
 

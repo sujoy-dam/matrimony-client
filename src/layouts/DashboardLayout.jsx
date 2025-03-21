@@ -10,7 +10,7 @@ const DashboardLayout = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false)
   return (
     <div className='relative'>
-      <div className='sticky top-0 z-10'>
+      <div className='sticky top-0 z-50'>
         <Navbar />
       </div>
       <div className='flex mb-5 min-h-screen'>

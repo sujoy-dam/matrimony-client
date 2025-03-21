@@ -25,7 +25,7 @@ const Home = () => {
     //     console.log(data)
     //     setPremium(data)
     //   })
-  }, [premium])
+  }, [])
   const fetchPremium = ()=>{
     fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
     .then(res => res.json())

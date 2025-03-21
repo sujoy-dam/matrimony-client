@@ -22,6 +22,8 @@ import Checkout from '../pages/Checkout/Checkout'
 import GotMarried from '../pages/Dashboard/User/GotMarried/GotMarried'
 import AdminRoutes from './AdminRoutes'
 import Profile from '../pages/Dashboard/User/Profile/Profile'
+import PrivecyPolicy from '../components/PrivecyPolicy'
+import HowItWorks from '../components/Home/HowItWorks/HowItWorks'
 // import { element } from 'prop-types'
 
 export const router = createBrowserRouter([
@@ -60,7 +62,16 @@ export const router = createBrowserRouter([
           <Checkout />
         </PrivateRoute>,
       },
+     
     ],
+  },
+  {
+    path:"howItWork",
+    element:<HowItWorks/>
+  },
+  {
+    path:'privacy',
+    element:<PrivecyPolicy/>
   },
   { path: '/login', element: <Login /> },
   { path: '/signup', element: <SignUp /> },

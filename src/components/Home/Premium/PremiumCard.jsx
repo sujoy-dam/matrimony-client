@@ -39,7 +39,7 @@ const PremiumCard = ({ item }) => {
             {/* View Profile Button */}
             <div className="p-4">
                 <Link to={`/biodata-details/${item?._id}`}>
-                    <button className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                    <button className="w-full bg-violet-500 text-white font-bold py-2 px-4 rounded hover:bg-violet-800">
                         View Profile
                     </button>
                 </Link>

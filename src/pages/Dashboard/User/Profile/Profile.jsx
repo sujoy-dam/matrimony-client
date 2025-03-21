@@ -5,7 +5,7 @@ const Profile = () => {
     const {user}=useAuth()
     console.log(user)
     return (
-        <div className=" p-5 max-w-xl space-y-5 rounded-xl gap-5 shadow-xl bg-sky-400">
+        <div className="p-5 max-w-xl space-y-5  rounded-xl gap-5 shadow-xl bg-sky-400">
             <figure  className=''>
                 <img
                     src={user?.photoURL}
