@@ -5,6 +5,7 @@ import { GrUserManager } from "react-icons/gr";
 import { MdWorkspacePremium } from "react-icons/md";
 import { MdContactPhone } from "react-icons/md";
 import { AiFillProfile } from "react-icons/ai";
+import { CgProfile } from 'react-icons/cg';
 
 const AdminSidebar = () => {
     return (
@@ -17,7 +18,7 @@ const AdminSidebar = () => {
             </li>
             <li><NavLink to='/dashboard/contact_request'><MdContactPhone />Contact Request</NavLink>
             </li>
-            <li><NavLink to='/dashboard/profile'><AiFillProfile />Profile</NavLink>
+            <li><NavLink to='/dashboard/profile'><CgProfile />Profile</NavLink>
             </li>
         </div>
     );

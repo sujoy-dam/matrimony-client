@@ -21,8 +21,8 @@ const Navbar = () => {
   const nav = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/biodatas'>Biodatas</NavLink></li>
-    <li><NavLink to='/about_us'>About Us</NavLink></li>
-    <li><NavLink to='/contact_us'>Contact Us</NavLink></li>
+    <li><NavLink to='/about_us'>About </NavLink></li>
+    <li><NavLink to='/contact_us'>Contact</NavLink></li>
     {
       user && role !== "Admin" && <li><NavLink to='/dashboard/edit'>Dashboard</NavLink></li>
     }
@@ -33,8 +33,8 @@ const Navbar = () => {
   </>
 
   return (
-    <div className="bg-base-100 shadow-xl">
-      <div className="navbar container mx-auto py-5 dark:bg-gray-100 dark:text-gray-800 sticky top-0 z-50">
+    <div className="bg-base-100 py-2 shadow-xl">
+      <div className="navbar container mx-auto dark:bg-gray-100 dark:text-gray-800 sticky top-0 z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -75,20 +75,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {/* {
-            user && <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
-          } */}
           {
             user ? <>
-
-
-              {/* <button  className="btn btn-outline">Logout</button> */}
-              <button onClick={() => logOut()} type="button" className="px-4 py-2 lg:px-8 lg:py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 mr-2">Logout</button>
+              <button onClick={() => logOut()} className="btn btn-outline font-semibold border rounded mr-2">Logout</button>
               <img className="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src={user.photoURL} alt="" />
             </> : <>
               <NavLink to='/login'>
-                {/* <button className="btn btn-outline">Login</button> */}
-                <button type="button" className="px-4 py-2 lg:px-8 lg:py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 mr-2">Login</button>
+                <button type="button" className="btn btn-outline font-semibold border rounded mr-2">Login</button>
               </NavLink>
             </>
           }

@@ -14,8 +14,8 @@ const ApprovedContactRequest = () => {
         }
     })
     const handleMakeApprove = async (id, preStatus, status) => {
-        
-        if(preStatus === status){
+
+        if (preStatus === status) {
             return toast.error("Status Already Approved")
         }
         Swal.fire({
@@ -26,7 +26,7 @@ const ApprovedContactRequest = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes"
-          }).then(async(result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 if (preStatus === "Approved") {
                     toast.error('Already Approved')
@@ -34,47 +34,79 @@ const ApprovedContactRequest = () => {
                 const { data } = await axiosSecure.patch(`/approve-status/${id}`, { status })
                 toast.success('Request Accepted')
                 refetch()
-              Swal.fire({
-                title: "Successful",
-                text: "Approve Request Successfully",
-                icon: "success"
-              });
+                Swal.fire({
+                    title: "Successful",
+                    text: "Approve Request Successfully",
+                    icon: "success"
+                });
             }
-          });
-        
+        });
+
     }
     return (
-        <div>
-            <div className="overflow-x-auto">
-                <table className="table table-zebra border-gray-800 border-2">
-                    {/* head */}
-                    <thead className='bg-gray-800 text-white'>
+        <div className="w-full flex justify-center overflow-x-auto">
+            <div className="overflow-x-auto w-full">
+                <table className="table table-zebra border-gray-800 border-2 w-full hidden sm:table">
+                    {/* Table Head */}
+                    <thead className="text-white">
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Biodata ID</th>
+                            <th className="hidden sm:table-cell">Email</th>
+                            <th className="hidden sm:table-cell">Biodata ID</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
-                        {
-                            contact.map((item, index) => <tr key={item._id}>
+                        {contact.map((item, index) => (
+                            <tr key={item._id}>
                                 <th>{index + 1}</th>
                                 <td>{item.userName}</td>
-                                <td>{item.userEmail}</td>
-                                <td>{item.biodataID}</td>
+                                <td className="hidden sm:table-cell">{item.userEmail}</td>
+                                <td className="hidden sm:table-cell">{item.biodataID}</td>
                                 <td>{item?.status}</td>
                                 <td>
-                                    {item.status==="Approved"?<button onClick={() => handleMakeApprove(item?._id, item?.status, "Approved")} className='btn btn-disabled'> Disablede</button>:<button onClick={() => handleMakeApprove(item?._id, item?.status, "Approved")} className='btn bg-gray-800 text-white'>Make Approved</button>}
+                                    {item.status === "Approved" ? (
+                                        <button className="btn btn-disabled">Disabled</button>
+                                    ) : (
+                                        <button
+                                            onClick={() => handleMakeApprove(item._id, item.status, "Approved")}
+                                            className="btn bg-gray-800 text-white"
+                                        >
+                                            Make Approved
+                                        </button>
+                                    )}
                                 </td>
-                            </tr>)
-                        }
-
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Mobile View (Card Layout) */}
+            <div className="flex-1 sm:hidden">
+                {contact.map((item, index) => (
+                    <div key={item._id} className="border p-3 mb-2 rounded-md shadow-md bg-gray-100">
+                        <p>
+                            <strong>{index + 1}. {item.userName}</strong>
+                        </p>
+                        <p>Status: {item?.status}</p>
+                        {item.status !== "Pending" && (
+                            <>
+                                <p>Email: {item.userEmail}</p>
+                                <p>Biodata ID: {item.biodataID}</p>
+                            </>
+                        )}
+                        <button
+                            className={`btn mt-2 ${item.status === "Approved" ? "btn-disabled" : "bg-gray-800 text-white"
+                                }`}
+                            onClick={() => handleMakeApprove(item._id, item.status, "Approved")}
+                        >
+                            {item.status === "Approved" ? "Disabled" : "Make Approved"}
+                        </button>
+                    </div>
+                ))}
             </div>
         </div>
     );

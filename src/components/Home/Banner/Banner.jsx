@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
 
 const Banner = () => {
     return (
-        <div className='container mx-auto border-4'>
+        <div className='container mx-auto'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

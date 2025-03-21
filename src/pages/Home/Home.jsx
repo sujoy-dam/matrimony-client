@@ -19,12 +19,6 @@ const Home = () => {
   // const [status]=useStatus()
   useEffect(() => {
     fetchPremium()
-    // fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data)
-    //     setPremium(data)
-    //   })
   }, [])
   const fetchPremium = ()=>{
     fetch(`${import.meta.env.VITE_API_URL}/premium-user`)
@@ -63,7 +57,7 @@ const Home = () => {
           <select
             name='category'
             id='category'
-            className='border p-4 rounded-md'
+            className='border p-3 rounded-md'
             onChange={(e) => sortUsers(e.target.value)}
           // value={sort}
           >

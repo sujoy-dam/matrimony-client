@@ -10,16 +10,22 @@ import { FaUserEdit } from "react-icons/fa";
 import { MdGridView } from "react-icons/md";
 import { MdOutlineFavorite } from "react-icons/md";
 import { GiTwinShell } from "react-icons/gi";
+import ProfileModal from '../../Modal/ProfileModal';
 const UserSidebar = () => {
+    let [isOpen, setIsOpen] = useState(false)
     return (
-        <div>
-            <li className=''><NavLink to='/dashboard/edit'><FaUserEdit />Edit Biodata</NavLink></li>
-            <li className=''><NavLink to='/dashboard/view'><MdGridView />View Biodata</NavLink></li>
-            <li className=''><NavLink to='/dashboard/my_contact_request'><RiContactsBook3Fill />My Contact Request</NavLink></li>
-            <li className=''><NavLink to='/dashboard/favourite'><MdOutlineFavorite />Favourites Biodata</NavLink></li>
-            <li className=''><NavLink to='/dashboard/gotMarried'><GiTwinShell />Got Married</NavLink></li>
-            <li className=''><NavLink to='/dashboard/profile'><CgProfile />Profile</NavLink></li>
-        </div>
+        <>
+            <div>
+                <li className=''><NavLink to='/dashboard/edit'><FaUserEdit />Edit Biodata</NavLink></li>
+                <li className=''><NavLink to='/dashboard/view'><MdGridView />View Biodata</NavLink></li>
+                <li className=''><NavLink to='/dashboard/my_contact_request'><RiContactsBook3Fill />Contact Request</NavLink></li>
+                <li className=''><NavLink to='/dashboard/favourite'><MdOutlineFavorite />Favourites Biodata</NavLink></li>
+                <li className=''><NavLink to='/dashboard/gotMarried'><GiTwinShell />Got Married</NavLink></li>
+                <li><NavLink to='/dashboard/profile'><CgProfile />Profile</NavLink></li>
+                {/* <li onClick={() => setIsOpen(true)} className=''><NavLink><CgProfile />Profile</NavLink></li> */}
+            </div>
+            <ProfileModal isOpen={isOpen} setIsOpen={setIsOpen}></ProfileModal>
+        </>
     );
 };
 

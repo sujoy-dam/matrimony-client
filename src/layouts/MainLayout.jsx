@@ -3,7 +3,7 @@ import Navbar from '../components/Shared/Navbar/Navbar'
 import Footer from '../components/Shared/Footer/Footer'
 const MainLayout = () => {
   return (
-    <div className='bg-white relative px-2 lg:px-0'>
+    <div className='relative px-2 lg:px-0'>
       <nav className="sticky top-0 z-10">
         <Navbar />
       </nav>

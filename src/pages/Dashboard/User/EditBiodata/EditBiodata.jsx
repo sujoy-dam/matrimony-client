@@ -10,11 +10,11 @@ import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 const EditBiodata = () => {
     const axiosPublic = useAxiosPublic()
     const { user } = useAuth()
-    const {data:userInfo,isLoading,refetch}=useQuery({
-        queryKey:['userOne', user?.email],
-        queryFn:async()=>{
-            const {data}= await axiosPublic.get(`/single-user/${user?.email}`)
-           
+    const { data: userInfo, isLoading, refetch } = useQuery({
+        queryKey: ['userOne', user?.email],
+        queryFn: async () => {
+            const { data } = await axiosPublic.get(`/single-user/${user?.email}`)
+
             return data
         }
     })
@@ -41,7 +41,7 @@ const EditBiodata = () => {
         const expectedPartnerWeight = form.expectedPartnerWeight.value;
         // const email = user?.email;
         const mobileNumber = form.mobileNumber.value;
-        
+
         const bioData = {
             gender,
             name,
@@ -49,7 +49,7 @@ const EditBiodata = () => {
             dateOfBirth,
             height,
             weight,
-            age, 
+            age,
             occupation,
             race,
             fatherName,
@@ -60,273 +60,304 @@ const EditBiodata = () => {
             expectedPartnerHeight,
             expectedPartnerWeight,
             mobileNumber,
-            userEmail:userInfo?.email,
-            userRole:userInfo?.role
-            
+            userEmail: userInfo?.email,
+            userRole: userInfo?.role
+
         }
-      
-        
-        try{
-            const {data}=await axiosSecure.put(`/bio-data/${user?.email}`, bioData)
-            
+
+
+        try {
+            const { data } = await axiosSecure.put(`/bio-data/${user?.email}`, bioData)
+
             navigate('/dashboard/view')
             toast.success('Bio-Data added successfully')
-        }catch(err){
-            
+        } catch (err) {
+
             toast.error(err.response.data)
         }
 
     };
     return (
-        <div className="flex justify-center items-center min-h-screen py-8">
+        <div className="min-h-screen bg-teal-700 p-8 border rounded-lg shadow-lg">
             <form
-                className="shadow-lg border p-8 rounded-lg w-full max-w-xl"
+                className=" grid grid-cols-12 gap-x-8 gap-y-4 w-full"
                 onSubmit={handleSubmit}
-            >
-                <h2 className="text-2xl font-bold mb-6">Biodata Form</h2>
+            >{/* Gender */}
+                <h2 className="text-2xl font-bold text-center col-span-12 mb-6">Biodata Form</h2>
+                <div className='col-span-12 md:col-span-6 space-y-3'>
 
-                {/* Gender */}
-                <label className="block mb-2 font-medium">Gender</label>
-                <select
-                    name="gender"
-                    // value={formData.gender}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
+                    <label className="mb-2 font-medium">Gender</label>
+                    <select
+                        name="gender"
+                        // value={formData.gender}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
 
                 {/* Name */}
-                <label className="block mb-2 font-medium">Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    // value={formData.name}
-                    // onChange={handleChange}
-                    defaultValue={user?.displayName}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        // value={formData.name}
+                        // onChange={handleChange}
+                        defaultValue={user?.displayName}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
 
                 {/* Profile Image */}
-                <label className="block mb-2 font-medium">Profile Image</label>
-                <input
-                    type="file"
-                    name="profileImage"
-                    // value={userInfo.image}
-                    // onChange={handleChange}
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Profile Image</label>
+                    <input
+                        type="file"
+                        name="profileImage"
+                        // value={userInfo.image}
+                        // onChange={handleChange}
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
 
                 {/* Date of Birth */}
-                <label className="block mb-2 font-medium">Date of Birth</label>
-                <input
-                    type="date"
-                    name="dateOfBirth"
-                    // value={formData.dateOfBirth}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Date of Birth</label>
+                    <input
+                        type="date"
+                        name="dateOfBirth"
+                        // value={formData.dateOfBirth}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
 
                 {/* Height */}
-                <label className="block mb-2 font-medium">Height</label>
-                <select
-                    name="height"
-                    // value={formData.height}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Height</option>
-                    <option value="Short">Short</option>
-                    <option value="Average">Average</option>
-                    <option value="Tall">Tall</option>
-                </select>
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className="mb-2 font-medium">Height</label>
+                    <select
+                        name="height"
+                        // value={formData.height}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Height</option>
+                        <option value="Short">Short</option>
+                        <option value="Average">Average</option>
+                        <option value="Tall">Tall</option>
+                    </select>
+                </div>
 
                 {/* Weight */}
-                <label className="block mb-2 font-medium">Weight</label>
-                <select
-                    name="weight"
-                    // value={formData.weight}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Weight</option>
-                    <option value="Underweight">Underweight</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Overweight">Overweight</option>
-                </select>
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Weight</label>
+                    <select
+                        name="weight"
+                        // value={formData.weight}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Weight</option>
+                        <option value="Underweight">Underweight</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Overweight">Overweight</option>
+                    </select>
+                </div>
 
                 {/* Age */}
-                <label className="block mb-2 font-medium">Age</label>
-                <input
-                    type="number"
-                    name="age"
-                    // value={formData.age}
-                    // onChange={handleChange}
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Age</label>
+                    <input
+                        type="number"
+                        name="age"
+                        // value={formData.age}
+                        // onChange={handleChange}
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
 
                 {/* Occupation */}
-                <label className="block mb-2 font-medium">Occupation</label>
-                <select
-                    name="occupation"
-                    // value={formData.occupation}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Occupation</option>
-                    <option value="Student">Student</option>
-                    <option value="Professional">Professional</option>
-                    <option value="Business">Business</option>
-                </select>
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Occupation</label>
+                    <select
+                        name="occupation"
+                        // value={formData.occupation}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Occupation</option>
+                        <option value="Student">Student</option>
+                        <option value="Professional">Professional</option>
+                        <option value="Business">Business</option>
+                    </select>
+                </div>
 
                 {/* Race */}
-                <label className="block mb-2 font-medium">Race</label>
-                <select
-                    name="race"
-                    // value={formData.race}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Race</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Dark">Dark</option>
-                </select>
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className="mb-2 font-medium">Race</label>
+                    <select
+                        name="race"
+                        // value={formData.race}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Race</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Dark">Dark</option>
+                    </select>
+                </div>
 
                 {/* Parent Names */}
-                <label className="block mb-2 font-medium">Father's Name</label>
-                <input
-                    type="text"
-                    name="fatherName"
-                    // value={formData.fatherName}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
-
-                <label className="block mb-2 font-medium">Mother's Name</label>
-                <input
-                    type="text"
-                    name="motherName"
-                    // value={formData.motherName}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Father's Name</label>
+                    <input
+                        type="text"
+                        name="fatherName"
+                        // value={formData.fatherName}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Mother's Name</label>
+                    <input
+                        type="text"
+                        name="motherName"
+                        // value={formData.motherName}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
 
                 {/* Division Names */}
-                <label className="block mb-2 font-medium">Permanent Division</label>
-                <select
-                    name="permanentDivision"
-                    // value={formData.permanentDivision}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Division</option>
-                    <option value="Dhaka">Dhaka</option>
-                    <option value="Chattagra">Chattagram</option>
-                    <option value="Rangpur">Rangpur</option>
-                    <option value="Barisal">Barisal</option>
-                    <option value="Khulna">Khulna</option>
-                    <option value="Mymensingh">Mymensingh</option>
-                    <option value="Sylhet">Sylhet</option>
-                </select>
-
-                <label className="block mb-2 font-medium">Present Division</label>
-                <select
-                    name="presentDivision"
-                    // value={formData.presentDivision}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Division</option>
-                    <option value="Dhaka">Dhaka</option>
-                    <option value="Chattagra">Chattagra</option>
-                    <option value="Rangpur">Rangpur</option>
-                    <option value="Barisal">Barisal</option>
-                    <option value="Khulna">Khulna</option>
-                    <option value="Mymensingh">Mymensingh</option>
-                    <option value="Sylhet">Sylhet</option>
-                </select>
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Permanent Division</label>
+                    <select
+                        name="permanentDivision"
+                        // value={formData.permanentDivision}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Division</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chattagra">Chattagram</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Sylhet">Sylhet</option>
+                    </select>
+                </div>
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Present Division</label>
+                    <select
+                        name="presentDivision"
+                        // value={formData.presentDivision}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Division</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Chattagra">Chattagra</option>
+                        <option value="Rangpur">Rangpur</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Khulna">Khulna</option>
+                        <option value="Mymensingh">Mymensingh</option>
+                        <option value="Sylhet">Sylhet</option>
+                    </select>
+                </div>
 
                 {/* Partner Expectations */}
-                <label className="block mb-2 font-medium">Expected Partner Age</label>
-                <input
-                    type="number"
-                    name="expectedPartnerAge"
-                    // value={formData.expectedPartnerAge}
-                    // onChange={handleChange}
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                />
-
-                <label className="block mb-2 font-medium">Expected Partner Height</label>
-                <select
-                    name="expectedPartnerHeight"
-                    // value={formData.expectedPartnerHeight}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Height</option>
-                    <option value="Short">Short</option>
-                    <option value="Average">Average</option>
-                    <option value="Tall">Tall</option>
-                </select>
-
-                <label className="block mb-2 font-medium">Expected Partner Weight</label>
-                <select
-                    name="expectedPartnerWeight"
-                    // value={formData.expectedPartnerWeight}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-4 p-2 border border-gray-300 rounded"
-                >
-                    <option value="">Select Weight</option>
-                    <option value="Underweight">Underweight</option>
-                    <option value="Normal">Normal</option>
-                    <option value="Overweight">Overweight</option>
-                </select>
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Expected Partner Age</label>
+                    <input
+                        type="number"
+                        name="expectedPartnerAge"
+                        // value={formData.expectedPartnerAge}
+                        // onChange={handleChange}
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    />
+                </div>
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Expected Partner Height</label>
+                    <select
+                        name="expectedPartnerHeight"
+                        // value={formData.expectedPartnerHeight}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Height</option>
+                        <option value="Short">Short</option>
+                        <option value="Average">Average</option>
+                        <option value="Tall">Tall</option>
+                    </select>
+                </div>
+                <div className="col-span-12 md:col-span-6 space-y-3">
+                    <label className=" mb-2 font-medium">Expected Partner Weight</label>
+                    <select
+                        name="expectedPartnerWeight"
+                        // value={formData.expectedPartnerWeight}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-4 p-2 border border-gray-300 rounded"
+                    >
+                        <option value="">Select Weight</option>
+                        <option value="Underweight">Underweight</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Overweight">Overweight</option>
+                    </select>
+                </div>
 
                 {/* Contact Details */}
-                <label className="block mb-2 font-medium">Contact Email</label>
-                <input
-                    type="email"
-                    name="email"
-                    // value={formData.contactEmail}
-                    defaultValue={user.email}
-                    readOnly
-                    className="w-full mb-4 p-2 border border-gray-300 bg-gray-200 rounded"
-                />
-
-                <label className="block mb-2 font-medium">Mobile Number</label>
-                <input
-                    type="tel"
-                    name="mobileNumber"
-                    // value={formData.mobileNumber}
-                    // onChange={handleChange}
-                    required
-                    className="w-full mb-6 p-2 border border-gray-300 rounded"
-                />
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Contact Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        // value={formData.contactEmail}
+                        defaultValue={user.email}
+                        readOnly
+                        className="w-full mb-4 p-2 border border-gray-300 bg-gray-200 rounded"
+                    />
+                </div>
+                <div className='col-span-12 md:col-span-6 space-y-3'>
+                    <label className=" mb-2 font-medium">Mobile Number</label>
+                    <input
+                        type="tel"
+                        name="mobileNumber"
+                        // value={formData.mobileNumber}
+                        // onChange={handleChange}
+                        required
+                        className="w-full mb-6 p-2 border border-gray-300 rounded"
+                    />
+                </div>
 
                 <button
                     type="submit"
-                    className="w-full bg-violet-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-800"
+                    className="w-full col-span-12 bg-violet-500 text-white font-bold py-3 mt-4 rounded hover:bg-indigo-800"
                 >
                     Save And Publish Now
                 </button>
             </form>
-        </div>
+        </div >
     );
 };
 

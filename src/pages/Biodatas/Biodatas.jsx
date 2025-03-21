@@ -96,9 +96,11 @@ const Biodatas = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-full p-5 min-h-screen flex items-center gap-5'>
+            <div className='w-full p-5 my-10 min-h-screen flex items-center gap-5'>
 
                 <div className='w-full'>
+                    <h1 className="text-3xl font-semibold text-center">All Biodatas</h1>
+                    <p className='text-center'>Browse and explore matrimonial profiles to find your perfect match</p>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                         {
                             allBio?.map(item => <PremiumCard item={item} key={item._id}></PremiumCard>)
