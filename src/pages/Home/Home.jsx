@@ -52,8 +52,8 @@ const Home = () => {
 
       </div>
       <div className=''>
-        <Heading title={"PREMIUM MEMBER"} subtitle={"Here tou can find premium member"} center={true}></Heading>
-        <div className='mt-10'>
+        <Heading title={"Premium Member"} subtitle={"Here tou can find premium member"} center={true}></Heading>
+        <div className='mt-10 '>
           <select
             name='category'
             id='category'

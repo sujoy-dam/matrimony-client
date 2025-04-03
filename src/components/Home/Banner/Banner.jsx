@@ -45,7 +45,7 @@ const Banner = () => {
                                     <p className="mb-5">
                                         Most trusted Matrimony Brand in the World.
                                     </p>
-                                    <Link to="/biodatas" className="btn mt-5 btn-primary">Get Started</Link>
+                                    <Link to="/biodatas" className="btn mt-5 bg-purple-500">Get Started</Link>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ const Banner = () => {
                                             <li>Wedding Planner</li>
                                         </ul>
                                     </>
-                                    <Link to="/biodatas" className="btn mt-5 btn-primary">Get Started</Link>
+                                    <Link to="/biodatas" className="btn mt-5 bg-purple-500">Get Started</Link>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ const Banner = () => {
                                     <p className="mb-5 lg:text-xl uppercase">
                                         why don't make your move with us?
                                     </p>
-                                    <Link to="/biodatas" className="btn mt-5 btn-primary">Get Started</Link>
+                                    <Link to="/biodatas" className="btn mt-5 bg-purple-500">Get Started</Link>
                                 </div>
                             </div>
                         </div>

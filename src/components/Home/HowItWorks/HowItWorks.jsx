@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Heading from '../../Shared/Heading';
 
 const HowItWorks = () => {
     const steps = [
@@ -12,10 +13,7 @@ const HowItWorks = () => {
         <div className="bg-base-100 shadow-xl border rounded-xl py-12 px-6">
             {/* Hero Section */}
             <div className="text-center max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold">How It Works</h1>
-                <p className="mt-4 text-lg">
-                    Finding your perfect match is easy with MatrimonyHub. Follow these simple steps to start your journey.
-                </p>
+                <Heading title={"How It Works"} subtitle={"Finding your perfect match is easy with MatrimonyHub. Follow these simple steps to start your journey."} center={true}></Heading>
             </div>
 
             {/* Steps Section */}

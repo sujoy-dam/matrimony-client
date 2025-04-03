@@ -1,6 +1,11 @@
-a.active{
-    font-weight: 600;
-    background: aqua;
-    /* text-decoration: underline; */
-    /* color: rgb(222, 222, 221); */
+.navbar a.active{
+    /* font-weight: 600; */
+    /* background: aqua; */
+    text-decoration: underline;
+    color: blue;
+    font-family: cursive;
+    /* transform: rotate(10deg); */
+}
+.navbar NavLink:hover{
+    text-decoration: underline;
 }

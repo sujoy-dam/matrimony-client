@@ -12,7 +12,7 @@ const AboutUs = () => {
         { name: "Rahul & Sneha", feedback: "A trustworthy platform to find true love!" },
       ];
     return (
-        <div className="bg-gray-100 py-12 px-6">
+        <div className="bg-base-100 py-12 px-6">
       {/* Hero Section */}
       <div className="text-center max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900">About Us</h1>
@@ -51,7 +51,7 @@ const AboutUs = () => {
       <div className="mt-16 text-center">
         <h2 className="text-2xl font-bold text-gray-900">Join Us Today</h2>
         <p className="text-gray-600 mt-2">Find your perfect match and start your journey towards happiness.</p>
-        <button className="btn btn-primary mt-4">Get Started</button>
+        <button className="btn bg-pink-400 mt-4">Get Started</button>
       </div>
     </div>
     );
