@@ -5,6 +5,7 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useLoaderData } from 'react-router-dom';
 import baiodatBanner from "../../assets/images/biodataBanner.jpg"
 import { Typewriter } from 'react-simple-typewriter'
+import Heading from '../../components/Shared/Heading';
 
 const Biodatas = () => {
     const axiosPublic = useAxiosPublic()
@@ -99,8 +100,7 @@ const Biodatas = () => {
             <div className='w-full p-5 my-10 min-h-screen flex items-center gap-5'>
 
                 <div className='w-full'>
-                    <h1 className="text-3xl font-semibold text-center">All Biodatas</h1>
-                    <p className='text-center'>Browse and explore matrimonial profiles to find your perfect match</p>
+                    <Heading title={"All Biodatas"} subtitle={"Browse and explore matrimonial profiles to find your perfect match"} center={true}></Heading>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                         {
                             allBio?.map(item => <PremiumCard item={item} key={item._id}></PremiumCard>)
@@ -108,12 +108,12 @@ const Biodatas = () => {
                     </div>
                     {<div className="pagination space-x-4 mt-5">
                         {/* <p>{currentPage}</p> */}
-                        <button onClick={() => handlePre()} className='btn bg-gray-700 text-white'>Pre</button>
+                        <button onClick={() => handlePre()} className='btn bg-purple-500 text-white'>Pre</button>
                         {
-                            pages?.map(page => <button onClick={() => setCurrentPage(page)} className={`btn bg-gray-700 text-white  ${currentPage === page && "bg-red-400"}`} key={page}>{page}</button>)
+                            pages?.map(page => <button onClick={() => setCurrentPage(page)} className={`btn bg-purple-500 text-white  ${currentPage === page && "bg-red-400"}`} key={page}>{page}</button>)
                         }
-                        <button onClick={() => handleNext()} className='btn bg-gray-700 text-white'>Next</button>
-                        <select value={itemsPerPages} onChange={handleItemsPerPages} className='btn bg-gray-700 text-white'>
+                        <button onClick={() => handleNext()} className='btn bg-purple-500 text-white'>Next</button>
+                        <select value={itemsPerPages} onChange={handleItemsPerPages} className='btn bg-purple-500 text-white'>
                             <option value="5">6</option>
                             <option value="10">10</option>
                             <option value="15">15</option>

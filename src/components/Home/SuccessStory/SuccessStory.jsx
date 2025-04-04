@@ -7,6 +7,7 @@ import { FreeMode, Pagination } from 'swiper/modules';
 
 // Import Swiper styles
 import "swiper/css";
+import Heading from '../../Shared/Heading';
 
 const SuccessStory = () => {
   const axiosSecure = useAxiosSecure()
@@ -23,19 +24,20 @@ const SuccessStory = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-6 bg-base-100 border mb-10 rounded-xl shadow-xl">
-      <h2 className="text-4xl font-bold text-center mb-6">Marriage Success Stories</h2>
-      <h2 className="text-2xl font-bold text-center mb-6">Recent Couples</h2>
+      <div className="text-center max-w-4xl mx-auto">
+        <Heading title={"Marriage Success Stories"} subtitle={"Recent Couples"} center={true}></Heading>
+      </div>
       <div className="gap-6">
         <Swiper watchSlidesProgress={true}
           autoplay={{ delay: 2000, disableOnInteraction: true, pauseOnMouseEnter: true }}
-          modules={[FreeMode, Pagination,Autoplay]}
+          modules={[FreeMode, Pagination, Autoplay]}
           spaceBetween={30}
           freeMode={true}
           loop={true}
           pagination={{
             clickable: true,
-        }}
-          slidesPerView={3} className="mySwiper">
+          }}
+          slidesPerView={1} className="mySwiper">
           {
             married.map(item =>
               <SwiperSlide key={item._id}>

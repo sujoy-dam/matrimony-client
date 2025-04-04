@@ -59,8 +59,8 @@ const Navbar = () => {
               {nav}
             </ul>
           </div>
-          <div className="flex items-center">
-            <Link to="/" className="font-bold text-lg lg:text-2xl">Bangla Matrimony</Link>
+          <div className="flex logo-title items-center">
+            <Link to="/" className="font-bold text-lg lg:text-2xl text">Bangla Matrimony</Link>
             <div className="form-control hidden md:flex">
               <label className="label cursor-pointer">
                 <button onClick={handleToggle}>

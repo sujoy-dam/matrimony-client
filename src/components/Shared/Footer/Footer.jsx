@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 const Footer = () => {
   // bg-fuchsia-500
   return (
-    <footer className="footer bg-base-100 shadow-xl pt-10 pb-5">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="border-t bg-base-200 shadow-xl pt-10 pb-5">
+      <div className="container mx-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* About Section */}
         <div>
           <h2 className="text-xl font-semibold">About MatrimonyHub</h2>

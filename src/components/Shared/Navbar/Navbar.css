@@ -6,6 +6,7 @@
     font-family: cursive;
     /* transform: rotate(10deg); */
 }
-.navbar NavLink:hover{
+.logo-title{
     text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
 }

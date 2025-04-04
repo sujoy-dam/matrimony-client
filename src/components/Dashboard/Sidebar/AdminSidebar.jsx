@@ -9,7 +9,7 @@ import { CgProfile } from 'react-icons/cg';
 
 const AdminSidebar = () => {
     return (
-        <div>
+        <div className=''>
             <li><NavLink to='/dashboard/admin_dashboard'><MdSpaceDashboard />Admin Dashboard</NavLink>
             </li>
             <li><NavLink to='/dashboard/manage_users'><GrUserManager />Manage Users</NavLink>

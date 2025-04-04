@@ -14,7 +14,7 @@ const BiodatasSidebar = ({ handleAge, setFilterGender, setFilterDivision, setSea
                     // onChange={(e) =ttttttt> setSearchAge(e.target.value)}
                     // value={searchAge}
                     />
-                    <button className='px-1 py-4 md:px-4 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
+                    <button className='px-1 py-4 md:px-4 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-purple-500 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
                         Search
                     </button>
                 </form>

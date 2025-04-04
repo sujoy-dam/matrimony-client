@@ -97,8 +97,8 @@ const BiodataDetails = () => {
                     pagination={{
                         clickable: true,
                     }}
-                    autoplay={{ delay: 2000, disableOnInteraction: true,pauseOnMouseEnter: true }}
-                    modules={[FreeMode, Pagination,Autoplay]}
+                    autoplay={{ delay: 2000, disableOnInteraction: true, pauseOnMouseEnter: true }}
+                    modules={[FreeMode, Pagination, Autoplay]}
                     className="mySwiper">
                     {
                         gender.map(item => (<SwiperSlide key={item._id}><PremiumCard key={item._id} item={item}></PremiumCard>
@@ -108,7 +108,7 @@ const BiodataDetails = () => {
                 </Swiper>
             </div>
             <>
-                <div className="border-2 p-10 my-10 rounded-xl space-y-8 shadow-xl">
+                <div className="border-2 w-1/2 p-10 my-10 rounded-xl space-y-8 shadow-xl">
                     <div className="flex justify-between items-center gap-20">
                         <div className='border-violet-500 border-2 p-2 w-1/2'>
                             <img src={photo} className='w-full h-72 hover:scale-105 transform transition-transform duration-300' alt="" />
@@ -122,10 +122,10 @@ const BiodataDetails = () => {
                         <div className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center rounded-full p-4 text-center w-60 mx-auto text-white'>
                             <span className='font-bold uppercase'>professional details</span>
                         </div>
-                        <div>
+                        <div className=''>
                             <div className="overflow-x-auto">
                                 <table className="w-full font-medium">
-                                    <tbody>
+                                    <tbody className='border-2'>
                                         {/* date of birth */}
                                         <tr>
                                             <td>Date of Birth</td>
@@ -193,7 +193,7 @@ const BiodataDetails = () => {
                         <div>
                             <div className="overflow-x-auto">
                                 <table className="w-full font-medium">
-                                    <tbody>
+                                    <tbody className='border-2'>
                                         {/* father name */}
                                         <tr>
                                             <td>Father Name</td>
@@ -226,9 +226,9 @@ const BiodataDetails = () => {
                                                     </Link>
                                                 </>
                                         }
-                                        <button onClick={() => handleAddToFavourite(item)} className="btn btn-primary">Add To Faviourite</button>
                                     </tbody>
                                 </table>
+                                <button onClick={() => handleAddToFavourite(item)} className="btn bg-violet-500 mt-8">Add To Faviourite</button>
                             </div>
                         </div>
                     </div>

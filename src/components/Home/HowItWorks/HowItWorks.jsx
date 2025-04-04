@@ -29,7 +29,7 @@ const HowItWorks = () => {
 
             {/* Additional Information */}
             <div className="mt-16 max-w-4xl mx-auto text-center">
-                <h2 className="text-2xl font-bold">Why Choose MatrimonyHub?</h2>
+                <h2 className="text-2xl text-purple-500 font-bold">Why Choose MatrimonyHub?</h2>
                 <p className="mt-4">
                     MatrimonyHub is dedicated to helping individuals find their perfect life partner with the utmost safety and efficiency. Our platform ensures:
                 </p>
@@ -43,10 +43,10 @@ const HowItWorks = () => {
 
             {/* Call to Action */}
             <div className="mt-16 text-center">
-                <h2 className="text-2xl font-bold">Ready to Find Your Match?</h2>
+                <h2 className="text-2xl font-bold text-purple-500">Ready to Find Your Match?</h2>
                 <p className="mt-2">Join MatrimonyHub today and take the first step towards a lifetime of happiness.</p>
                 <Link to="biodatas">
-                    <button className="btn btn-primary mt-4">Get Started</button>
+                    <button className="btn bg-purple-500 mt-4">Get Started</button>
                 </Link>
             </div>
         </div>
